@@ -1,0 +1,2 @@
+class SplitExercisesController < ApplicationController
+end
