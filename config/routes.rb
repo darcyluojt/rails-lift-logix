@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :programmes
   resources :splits do
     resources :exercises, only: []
-    resources :split_exercises, only: [:create]
+    resources :split_exercises, only: [:create, :destroy]
   end
 
 
