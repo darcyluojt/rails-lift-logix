@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+body {
+  // background-color: #121212; // primary background color
+  background-color: #1E1E1E; // seconddary background color
+  color: white;
+}
+
+.purple {
+  color: #BB86FC;
+
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-sign-in {
+  background-color: #00ADB5; /* Bootstrap primary blue */
+  color: #fff;
+  border: 2px solid white;
+
+  &:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #004085; /* Slightly darker border */
+  }
+
+  &:focus,
+  &:active {
+    background-color: #004085; /* Even darker blue when clicked */
+    border-color: #003366;
+    outline: none; /* Remove default focus outline */
+  }
+}

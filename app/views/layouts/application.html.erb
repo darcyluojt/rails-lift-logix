@@ -17,9 +17,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar" %>
 
-    <%= yield %>
+      <div class="content">
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+      <% #render shared/footer when footer has been made %>
+    <% else %>
+    <%= render "shared/navbar" %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
