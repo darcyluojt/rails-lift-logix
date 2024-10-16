@@ -7,6 +7,13 @@ class SplitExercisesController < ApplicationController
     redirect_to split_path(@split)
   end
 
+  def destroy
+    @split_exercise = SplitExercise.find(params[:id])
+    @split = @split_exercise.split
+    @split_exercise.destroy
+    redirect_to split_path(@split)
+  end
+
   private
   def split_exercise_params
     params.require(:split_exercise).permit(:exercise_id)

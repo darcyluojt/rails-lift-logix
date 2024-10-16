@@ -7,8 +7,10 @@
   <div class="block border exercise-card">
     <h5><%= split_exercise.exercise.name %></h5>
     <p><%= split_exercise.exercise.description %></p>
-    <%= link_to split_split_exercises_path(split_exercise) do  %>
-      <i class="fa-solid fa-trash"></i>
+    <%= link_to split_exercise_path(split_exercise),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+      class: "btn-delete" do %>
+        <i class="fa-solid fa-trash"></i>
     <% end %>
   </div>
 <% end %>
