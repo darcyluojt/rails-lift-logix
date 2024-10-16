@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  resources :programmes
+  resources :splits do
+    resources :exercises, only: []
+    resources :split_exercises, only: [:create]
+  end
+
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
