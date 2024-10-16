@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   resources :programmes
-  resources :splits, only: %i[index show] do
+  resources :splits, only: %i[ index show ] do
     resources :exercises, only: []
     resources :split_exercises, only: [:create]
   end
