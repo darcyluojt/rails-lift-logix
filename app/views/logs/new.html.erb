@@ -1,0 +1,20 @@
+<h1>Current Workout</h1>
+
+<h3><%= @split.category %></h3>
+
+  <% @split.split_exercises.each do |split_exercise| %>
+  <div class="exercise" data-controller="sets">
+
+   <%= split_exercise.exercise.name %>
+   <div data-sets-target="form">
+    <%= simple_form_for [split_exercise.split, @log] do |f| %>
+     <div class="d-flex justify-content-around">
+      <%=f.input :weight, placeholder: "Weights(Kg)", label: false %>
+      <%=f.input :repetitions, placeholder: "Repetitions", label: false  %>
+     </div>
+     <i class="fa-solid fa-plus" data-action="click->sets#add"></i>
+    <% end %>
+    </div>
+
+  </div>
+  <% end %>
