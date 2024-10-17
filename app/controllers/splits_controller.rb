@@ -4,7 +4,7 @@ class SplitsController < ApplicationController
   end
 
   def show
-    @split = Split.find(params[:id])
+    @split = current_user.programmes.last.splits.first
     # get all exercises except for @split.split_exercises and for the correct category
     @exercises = Exercise.where("'#{@split.category}' = ANY(category_array)")
     @exercises =  @exercises - @split.exercises
