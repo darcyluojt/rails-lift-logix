@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  resources :programmes
+  resources :programmes, only: %i[ new create show ] do
+    resources :splits, only: %i[ index ]
+  end
 
-  resources :splits, only: %i[ index show ] do
+  resources :splits, only: :show do
     resources :exercises, only: []
     resources :split_exercises, only: [:create]
     resources :workouts, only: [:index, :create]
