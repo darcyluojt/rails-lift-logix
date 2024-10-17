@@ -1,8 +1,8 @@
 
 <%# display each exercise within that category in that split %>
 
-<h2><%= @split.category.capitalize %> Exercises</h2>
-
+<h2>Creating Your <%= @split.category.capitalize %> Split</h2>
+<p>Choose your exercises</p>
 <%@split.split_exercises.each do |split_exercise|%>
   <div class="block border exercise-card">
     <h5><%= split_exercise.exercise.name %></h5>
@@ -23,6 +23,6 @@
   <% if @next_split %>
     <%= link_to 'Next Split', split_path(@next_split) %>
   <% else %>
-    <%= link_to 'View your program', splits_path  %>
+    <%= link_to 'View your program', programme_path(@split.programme)  %>
   <% end %>
 <% end %>

@@ -1,0 +1,12 @@
+<h1>Create your programme</h1>
+<%= simple_form_for @programme do |f| %>
+  <%= f.input :name, label: "What is the name of your programme?", placeholder: 'Power Surge 💪' %>
+  <%= f.input :weeks, collection: (4..12), label: "For how many weeks?" %>
+  <%= f.input :splits_per_week, collection: (1..6), value: 1, label: 'How many days do you workout per week?', hint: 'Rest day is as important as working day. Please consider having at least 1 rest day per week.', input_html: {data: {controller: 'splits', action: 'change->splits#extra'}} %>
+  <div class='category'>
+  <%= f.simple_fields_for :splits do |c| %>
+    <%= c.input :category, collection: ['Upperbody', 'Lowerbody', 'Push', 'Pull', 'Legs', 'Fullbody'], label: "Split 1: choose the type of exercises you want to do" %>
+  <% end %>
+</div>
+  <%= f.submit %>
+<% end %>
