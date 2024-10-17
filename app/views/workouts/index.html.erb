@@ -1,0 +1,8 @@
+ <h1>What do you want to do today?</h1>
+
+ <% @splits.each do |split| %>
+  <%= simple_form_for [split, @workout] do |f| %>
+   <%= f.submit split.category  %>
+   <hr>
+  <% end %>
+ <% end %>
