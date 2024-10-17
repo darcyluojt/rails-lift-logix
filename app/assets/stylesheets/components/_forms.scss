@@ -1,0 +1,125 @@
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+}
+
+
+form {
+  background-color: rgba(247, 247, 247, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  color: black;
+}
+
+.login-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: $primary-accent
+}
+
+.login-btn:hover {
+  background-color: #01747a;
+}
+
+.signup-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: $primary-accent;
+  transition: 0.3s ease-in-out;
+}
+
+.signup-btn:hover {
+  background-color: #01747a;
+  color: white;
+}
+
+.secondary-link {
+  display: block;
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.secondary-link:hover {
+  text-decoration: underline;
+}
+
+
+.signup-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 15px;
+}
+
+// form wrapper, to keep the form from getting tangled with the navbar
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px 0;
+  padding: 20px;
+}
+
+// Sign-up stuff below
+.signup-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+// had to add a container for the DOB as it wasnt centered nicely
+.date-of-birth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dob-input {
+  flex-grow: 1; // makes it take up sopace when form grows
+  margin-left: 10px; // add a bit of space between the label and input
+}
