@@ -2,34 +2,30 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="splits"
 export default class extends Controller {
-
-  connect() {
-    console.log(this.element)
-  }
-
   extra() {
-    // this.element.value (2)
-    const splits = this.element.value
+    // what user has inputed (also the event is triggered)
+    const userInput = this.element.value
+    // check how many spilit fields are there
     let formNumber = document.querySelectorAll('.category').length
     // loop until splits = formNumber
-
-    if (splits > formNumber) {
+    if (userInput > formNumber) {
       // 4(configured by user) > 1 (default value of formNumber)
-      const form = document.querySelector('.category').cloneNode(true)
-      const difference = splits - formNumber
+      const difference = userInput - formNumber
       // 3 times do
       for (let i = 0; i < difference; i++) {
-        form.querySelector('label').innerText = `Split ${formNumber + i + 1}`
-        console.log('duplicate form added ${i+1}')
+        const form = document.querySelector('.category').cloneNode(true)
+        form.querySelector('label').innerText = `Split ${formNumber + i + 1}, choose the type of exercises you want to do`
         // not this element, but should find the last category class
         formNumber = document.querySelectorAll('.category').length
         document.querySelectorAll('.category')[formNumber-1].insertAdjacentElement('afterend', form)
+        console.log('run once')
+
       }
     }
-    else if (splits < formNumber) {
+    else if (userInput < formNumber) {
       // 3 (user changes his mind) < 4 (original user input)
       const forms = document.querySelectorAll('.category')
-      const difference = formNumber - splits
+      const difference = formNumber - userInput
       // 1 time do
       for (let i = 0; i < difference; i++) {
         const lastForm = forms[forms.length-1]

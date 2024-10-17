@@ -1,12 +1,17 @@
 class SplitsController < ApplicationController
   def index
-    @splits = Split.all
+    @programme = Programme.find(params[:programme_id])
+    @splits = Programme.splits
   end
 
   def show
     @split = current_user.programmes.last.splits.first
     # get all exercises except for @split.split_exercises and for the correct category
-    @exercises = Exercise.where("'#{@split.category}' = ANY(category_array)")
+    if @split.category == "Fullbody"
+      @exercises = Exercise.all
+    else
+      @exercises = Exercise.where("'#{@split.category}' = ANY(category_array)")
+    end
     @exercises =  @exercises - @split.exercises
     @split_exercise = SplitExercise.new
     if @split.programme.splits.last == @split

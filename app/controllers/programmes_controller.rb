@@ -8,9 +8,7 @@ class ProgrammesController < ApplicationController
     @programme = Programme.new(programme_params)
     @programme.user = current_user
     @programme.save
-    # programme.new
-    # programme.splits.build(category: "push")
-    # programme.splits.build(category: "pull")
+    redirect_to split_path(@programme.splits.first)
 
   end
 
