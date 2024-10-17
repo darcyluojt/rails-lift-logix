@@ -3,7 +3,7 @@
  <% @splits.each do |split| %>
    <h3><%= split.category %></h3>
    <ul>
-    <%split.split_exercises.each do |split_exercise| %>
+    <% split.split_exercises.each do |split_exercise| %>
       <li><%= split_exercise.exercise.name %></li>
     <% end %>
     </ul>
@@ -11,4 +11,6 @@
  <% end %>
 
 <%= link_to "Edit my choices", split_path(@splits.first) %>
-<%= link_to "Confirm choices" %>
+
+<%= link_to "Confirm choices", split_workouts_path(@splits) %>
+
