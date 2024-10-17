@@ -184,8 +184,9 @@ puts "creating exercises"
   programme = Programme.create!(name: "Programme 1", user: user, weeks: 4, splits_per_week: 2)
 
   puts "create 3 splits"
-  split1 = Split.create!(programme: programme, category: "upperbody")
-  split2 = Split.create!(programme: programme, category: "lowerbody")
+  puts programme.user
+  split1 = Split.create!(programme: programme, category: "Upperbody")
+  split2 = Split.create!(programme: programme, category: "Lowerbody")
 
   puts "create 3 split exercises for each split"
   # create 2 exercises for each split
@@ -195,21 +196,24 @@ puts "creating exercises"
   SplitExercise.create!(exercise: Exercise.first, split: split2)
 
 
-  puts "create 2 workouts for each split"
-  Workout.create!(split: Split.first, date: "2022-01-01")
-  Workout.create!(split: Split.last, date: "2022-01-09")
+  puts "create 4 workouts for each split"
+  workout1_1 = Workout.create!(split: Split.first, date: "2024-01-01")
+  workout1_2 = Workout.create!(split: Split.first, date: "2024-01-08")
+  workout1_3 = Workout.create!(split: Split.first, date: "2024-01-15")
+  workout1_4 = Workout.create!(split: Split.first, date: "2024-01-22")
+  workout2_1 = Workout.create!(split: Split.last, date: "2024-01-09")
+  workout2_2 = Workout.create!(split: Split.last, date: "2024-01-16")
+  workout2_3 = Workout.create!(split: Split.last, date: "2024-01-23")
+  workout2_4 = Workout.create!(split: Split.last, date: "2024-01-30")
 
 
   puts "create 1 log for each split exercise"
   # for each workout, create a log for each split exercise
   # for each log, set weight and repetitions
-  Log.create!(workout: Workout.first, split_exercise: SplitExercise.first, weight: 60, repetitions: 8)
-  Log.create!(workout: Workout.first, split_exercise: SplitExercise.first, weight: 62, repetitions: 8)
-  Log.create!(workout: Workout.first, split_exercise: SplitExercise.second, weight: 20, repetitions: 12)
-  Log.create!(workout: Workout.first, split_exercise: SplitExercise.second, weight: 20, repetitions: 12)
-  Log.create!(workout: Workout.last, split_exercise: SplitExercise.third, weight: 50, repetitions: 10)
-  Log.create!(workout: Workout.last, split_exercise: SplitExercise.third, weight: 50, repetitions: 10)
-  Log.create!(workout: Workout.last, split_exercise: SplitExercise.last, weight: 62, repetitions: 8)
-  Log.create!(workout: Workout.last, split_exercise: SplitExercise.last, weight: 62, repetitions: 10)
+  Workout.all.each do |workout|
+    workout.split_exercises.each do |split_exercise|
+      Log.create!(workout: workout, split_exercise: split_exercise, weight: rand(30..60), repetitions: rand(6..12))
+    end
+  end
 
 puts "done"
