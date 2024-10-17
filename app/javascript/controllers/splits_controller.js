@@ -15,6 +15,8 @@ export default class extends Controller {
       for (let i = 0; i < difference; i++) {
         const form = document.querySelector('.category').cloneNode(true)
         form.querySelector('label').innerText = `Split ${formNumber + i + 1}, choose the type of exercises you want to do`
+        form.querySelector('select').name = `programme[splits_attributes][${formNumber + i }][category]`
+        form.querySelector('select').id = `programme_splits_attributes_${formNumber + i }_category`
         // not this element, but should find the last category class
         formNumber = document.querySelectorAll('.category').length
         document.querySelectorAll('.category')[formNumber-1].insertAdjacentElement('afterend', form)

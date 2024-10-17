@@ -23,6 +23,6 @@
   <% if @next_split %>
     <%= link_to 'Next Split', split_path(@next_split) %>
   <% else %>
-    <%= link_to 'View your program', splits_path  %>
+    <%= link_to 'View your program', programme_path(@split.programme)  %>
   <% end %>
 <% end %>

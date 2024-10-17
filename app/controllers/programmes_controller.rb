@@ -1,4 +1,9 @@
 class ProgrammesController < ApplicationController
+  def show
+    @programme = Programme.find(params[:id])
+    @splits = @programme.splits
+  end
+
   def new
     @programme = Programme.new
     @programme.splits.build
@@ -8,7 +13,7 @@ class ProgrammesController < ApplicationController
     @programme = Programme.new(programme_params)
     @programme.user = current_user
     @programme.save
-    redirect_to split_path(@programme.splits.first)
+    redirect_to programme_splits_path(@programme)
 
   end
 
