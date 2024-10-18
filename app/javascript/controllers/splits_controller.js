@@ -22,11 +22,13 @@ export default class extends Controller {
       }
     }
     else if (userInput < formNumber) {
-      // 3 (user changes his mind) < 4 (original user input)
-      const forms = document.querySelectorAll('.category')
+      // 2 (user changes his mind) < 4 (original user input)
+
       const difference = formNumber - userInput
-      // 1 time do
+      console.log(difference)
+      // 2 time do
       for (let i = 0; i < difference; i++) {
+        const forms = document.querySelectorAll('.category')
         const lastForm = forms[forms.length-1]
         lastForm.remove()
       }
