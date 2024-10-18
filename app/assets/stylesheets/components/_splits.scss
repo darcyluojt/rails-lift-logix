@@ -1,0 +1,124 @@
+// stuff for form below
+body {
+  background-color: #f8f8f8;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: rgba(247, 247, 247, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; // Add bottom margin
+}
+
+.form-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 80px auto 20px;
+}
+
+.form-description {
+  text-align: center;
+  font-size: 18px;
+  color: $primary-accent;
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: $primary-accent;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+
+// Exercise card stuff below
+.exercise-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 15px auto;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    max-width: 90%;
+    margin: 15px auto;
+    width: 90%;
+  }
+}
+
+.exercise-image {
+  flex: 30%;
+  height: auto;
+  display: flex;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.exercise-info {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.exercise-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.exercise-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-delete {
+  align-self: flex-end;
+  color: #ff0000;
+
+  i {
+    margin-left: 5px;
+  }
+}
+
+.btn-delete:hover {
+  color: #cc0000;
+}
+
+@media (max-width: 768px) { // media query to make the form and card for mobile
+  .form-container,
+  .exercise-card {
+    max-width: 400px;
+  }
+
+  .form-container {
+    margin-top: 20px;
+  }
+
+  .exercise-card {
+    margin: 15px auto; // supposed to give margins for cards on mobile?
+  }
+}

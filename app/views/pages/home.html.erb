@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="landing-page">
+  <%= image_tag "landingPageLogo.png", alt: "lift logix logo", style: "width: 250px; margin-bottom: 30px;" %>
+  <p>
+      Easily track your lifts and monitor progress with Lift Logix.
+  </p>
+  <%= link_to "Get started!", new_programme_path, class: "btn btn-get-started" %>
+</div>
