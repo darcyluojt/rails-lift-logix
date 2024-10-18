@@ -14,7 +14,7 @@ export default class extends Controller {
       // 3 times do
       for (let i = 0; i < difference; i++) {
         const form = document.querySelector('.category').cloneNode(true)
-        form.querySelector('label').innerText = `Split ${formNumber + i + 1}, choose the type of exercises you want to do`
+        form.querySelector('label').innerText = `Workout ${formNumber + i + 1}: choose your exercise type`
         form.querySelector('select').name = `programme[splits_attributes][${formNumber + i }][category]`
         form.querySelector('select').id = `programme_splits_attributes_${formNumber + i }_category`
         const currentFormNumber = document.querySelectorAll('.category').length
