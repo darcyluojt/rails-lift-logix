@@ -1,8 +1,8 @@
-// stuff for form below
 body {
   background-color: #f8f8f8;
 }
 
+// Form stuff below
 .form-container {
   width: 100%;
   max-width: 400px;
@@ -11,7 +11,7 @@ body {
   background-color: rgba(247, 247, 247, 0.9);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; // Add bottom margin
+  margin-bottom: 20px;
 }
 
 .form-title {
@@ -46,7 +46,7 @@ body {
   border: none;
 }
 
-// Exercise card stuff below
+// Exercise card stuff
 .exercise-card {
   display: flex;
   background-color: #fff;
@@ -55,6 +55,7 @@ body {
   margin-bottom: 20px;
   max-width: 600px;
   margin: 15px auto;
+  overflow: hidden;
 
   @media (max-width: 768px) {
     flex-direction: row;
@@ -95,9 +96,29 @@ body {
   color: #666;
 }
 
+// Heaviest lift container to hold the text and the delete button together
+.heaviest-lift-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.heaviest-lift-text {
+  color: $secondary-accent;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+
+// Delete button stuff
 .btn-delete {
-  align-self: flex-end;
-  color: #ff0000;
+  color: #acacac;
+  transition: 0.2s ease-in-out;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
   i {
     margin-left: 5px;
@@ -105,10 +126,11 @@ body {
 }
 
 .btn-delete:hover {
-  color: #cc0000;
+  color: #ff0000;
 }
 
-@media (max-width: 768px) { // media query to make the form and card for mobile
+// Responsive styles - could do with more work?
+@media (max-width: 768px) {
   .form-container,
   .exercise-card {
     max-width: 400px;
@@ -119,6 +141,6 @@ body {
   }
 
   .exercise-card {
-    margin: 15px auto; // supposed to give margins for cards on mobile?
+    margin: 15px auto;
   }
 }

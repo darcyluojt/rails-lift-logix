@@ -12,6 +12,10 @@ class WorkoutsController < ApplicationController
     @workout.split = Split.find(params[:split_id])
     @workout.date = Date.today
     @workout.done = false
-    @workout.save
+    if @workout.save
+      redirect_to new_split_log_path(@workout.split)
+    else
+      render 'index', status: :unprocessable_entity
+    end
   end
 end

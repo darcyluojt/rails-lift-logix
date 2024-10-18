@@ -14,7 +14,7 @@ export default class extends Controller {
       // 3 times do
       for (let i = 0; i < difference; i++) {
         const form = document.querySelector('.category').cloneNode(true)
-        form.querySelector('label').innerText = `Split ${formNumber + i + 1}, choose the type of exercises you want to do`
+        form.querySelector('label').innerText = `Workout ${formNumber + i + 1}: choose your exercise type`
         form.querySelector('select').name = `programme[splits_attributes][${formNumber + i }][category]`
         form.querySelector('select').id = `programme_splits_attributes_${formNumber + i }_category`
         const currentFormNumber = document.querySelectorAll('.category').length
@@ -22,11 +22,13 @@ export default class extends Controller {
       }
     }
     else if (userInput < formNumber) {
-      // 3 (user changes his mind) < 4 (original user input)
-      const forms = document.querySelectorAll('.category')
+      // 2 (user changes his mind) < 4 (original user input)
+
       const difference = formNumber - userInput
-      // 1 time do
+      console.log(difference)
+      // 2 time do
       for (let i = 0; i < difference; i++) {
+        const forms = document.querySelectorAll('.category')
         const lastForm = forms[forms.length-1]
         lastForm.remove()
       }

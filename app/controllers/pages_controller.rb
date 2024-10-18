@@ -6,6 +6,9 @@ class PagesController < ApplicationController
 
   def account
     @user = current_user
-    @programmes = @user.programmes
+    @programmes = @user.programmes.sort_by(&:created_at).reverse
+    @splits = @user.splits
+    @exercises = @splits.map { |split| split.exercises }.flatten.uniq
+    @exercises = @exercises.reject { |exercise| exercise.logs.empty? }
   end
 end

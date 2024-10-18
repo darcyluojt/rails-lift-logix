@@ -1,16 +1,25 @@
-<h1>Your programme</h1>
+<h1 class="programme-title">Your Programme</h1>
 
-<% @splits.each do |split| %>
-  <h3><%= split.category %></h3>
-  <%= image_tag split.split_exercises.first.exercise.image_url %>
-  <ul>
-    <% split.split_exercises.each do |split_exercise| %>
-      <li><%= split_exercise.exercise.name %></li>
-    <% end %>
-    </ul>
-  <hr>
-<% end %>
+<div class="splits-container">
+  <% @splits.each do |split| %>
+    <div class="split-card">
+      <div class="split-image">
+        <%= image_tag split.split_exercises.first.exercise.image_url, alt: split.category %>
+      </div>
 
-<%= link_to "Edit my choices", split_path(@splits.first) %>
+      <div class="split-info">
+        <h3 class="split-title"><%= split.category %> Split</h3>
+        <ul class="exercise-list">
+          <% split.split_exercises.each do |split_exercise| %>
+            <li><%= split_exercise.exercise.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to "Confirm choices", split_workouts_path(@splits.first) %>
+<div class="split-actions">
+  <%= link_to "Edit my choices", split_path(@splits.first), class: "btn-action btn-edit" %>
+  <%= link_to "Confirm choices", split_workouts_path(@splits.first), class: "btn-action btn-confirm" %>
+</div>
