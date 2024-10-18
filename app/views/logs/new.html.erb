@@ -3,7 +3,7 @@
 <h3><%= @split.category %></h3>
 
   <% @split.split_exercises.each do |split_exercise| %>
-  <div class="exercise" data-controller="sets">
+  <div class="exercise" data-controller="sets" id="form">
 
    <%= split_exercise.exercise.name %>
    <div data-sets-target="form">
