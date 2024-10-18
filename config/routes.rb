@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   get "account", to: "pages#account"
   # Defines the root path route ("/")
   # root "posts#index"
-  get "account", to: "pages#account"
 end
