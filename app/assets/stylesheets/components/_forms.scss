@@ -1,0 +1,83 @@
+body {
+  background-color: #f8f8f8;
+}
+
+.form-container {
+  width: 90%;
+  max-width: 400px; // Limit the width to keep forms neat
+  margin: 60px auto; // Center the container
+  padding: 20px;
+  background-color: rgba(247, 247, 247, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; // Add bottom margin
+}
+
+.form-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 80px auto 20px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.form-btn,
+.signup-btn,
+.login-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px; // Spacing between buttons
+  cursor: pointer;
+  font-size: 16px;
+  background-color: $primary-accent;
+}
+
+.form-btn:hover,
+.signup-btn:hover,
+.login-btn:hover {
+  background-color: #01747a;
+}
+
+.secondary-link {
+  display: block;
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.secondary-link:hover {
+  text-decoration: underline;
+}
+
+.date-of-birth-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dob-input {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+label {
+  color: #333; // Set label color to dark gray
+  font-size: 14px; // Adjust font size if needed
+  margin-bottom: 5px; // Space between label and input field
+}

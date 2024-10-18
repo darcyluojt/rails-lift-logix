@@ -2,7 +2,7 @@
 
  <% @splits.each do |split| %>
   <%= simple_form_for [split, @workout] do |f| %>
-   <%= f.submit split.category  %>
+   <%= f.submit split.category.capitalize  %>
    <hr>
   <% end %>
  <% end %>

@@ -1,0 +1,16 @@
+<h1>Your programme</h1>
+
+<% @splits.each do |split| %>
+  <h3><%= split.category %></h3>
+  <%= image_tag split.split_exercises.first.exercise.image_url %>
+  <ul>
+    <% split.split_exercises.each do |split_exercise| %>
+      <li><%= split_exercise.exercise.name %></li>
+    <% end %>
+    </ul>
+  <hr>
+<% end %>
+
+<%= link_to "Edit my choices", split_path(@splits.first) %>
+
+<%= link_to "Confirm choices", split_workouts_path(@splits.first) %>

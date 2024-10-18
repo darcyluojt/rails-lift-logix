@@ -1,28 +1,45 @@
+<h2 class="form-title">Creating Your <%= @split.category.capitalize %> Split</h2>
+<p class="form-description primary-color">Choose your exercises</p>
 
-<%# display each exercise within that category in that split %>
+<% @split.split_exercises.each do |split_exercise| %>
+  <div class="exercise-card">
+    <div class="exercise-image">
+      <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
+    </div>
 
-<h2><%= @split.category.capitalize %> Exercises</h2>
-
-<%@split.split_exercises.each do |split_exercise|%>
-  <div class="block border exercise-card">
-    <h5><%= split_exercise.exercise.name %></h5>
-    <p><%= split_exercise.exercise.description %></p>
-    <%= link_to split_exercise_path(split_exercise),
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
-      class: "btn-delete" do %>
-        <i class="fa-solid fa-trash"></i>
-    <% end %>
+    <div class="exercise-info">
+      <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
+      <p class="exercise-description"><%= split_exercise.exercise.description.truncate(60) %></p>
+      <% unless split_exercise.exercise.logs.empty? %>
+        <% heavy = split_exercise.exercise.logs.sort_by(&:weight).first %>
+        <p>Your heaviest lift for this one was <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %></p>
+      <% end %>
+      <%= link_to split_exercise_path(split_exercise),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+        class: "btn-delete" do %>
+          <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
-<%= simple_form_for [@split, @split_exercise] do |f| %>
-  <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'choose an exercise' %>
-  <%= f.submit %>
-<% end %>
-<% if @split.split_exercises.length >= 3 %>
-  <% if @next_split %>
-    <%= link_to 'Next Split', split_path(@next_split) %>
-  <% else %>
-    <%= link_to 'View your program', splits_path  %>
+<div class="form-container">
+  <%= simple_form_for [@split, @split_exercise] do |f| %>
+    <div class="form-inputs">
+      <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Add Exercise", class: "form-btn" %>
+    </div>
   <% end %>
-<% end %>
+
+  <% if @split.split_exercises.length >= 3 %>
+    <div class="form-links">
+      <% if @next_split %>
+        <%= link_to 'Next Split', split_path(@next_split), class: "secondary-link" %>
+      <% else %>
+        <%= link_to 'View your program', programme_path(@split.programme), class: "secondary-link"  %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

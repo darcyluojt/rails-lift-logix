@@ -1,1 +1,64 @@
-// Specific CSS for your home-page
+html, body {
+  height: 100%;
+  margin: 0; // remove any default margins
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+              url('https://images.pexels.com/photos/949131/pexels-photo-949131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+  color: white;
+  min-height: 100vh; // make sure the background image reaches the bottom?
+}
+
+.landing-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.btn-sign-in:hover {
+  background-color: #0056b3;
+}
+
+.btn-get-started {
+  background-color: $primary-accent;
+  margin: 40px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-get-started:hover {
+  background-color: #01747a;
+  color: white;
+}

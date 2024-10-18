@@ -1,7 +1,9 @@
 class WorkoutsController < ApplicationController
 
   def index
-    @splits = Split.all
+    @split = Split.find(params[:split_id])
+    @programme = @split.programme
+    @splits = @programme.splits
     @workout = Workout.new
   end
 
