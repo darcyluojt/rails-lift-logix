@@ -7,6 +7,7 @@
   <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
   <p><%= programme.splits.map(&:category).join(', ') %></p>
   <% total_workouts = programme.splits_per_week * programme.weeks %>
+  <div id="progressbar" data-controller="progress"></div>
   <p><%= programme.workouts.count %> done, <%= total_workouts - programme.workouts.count %> to go</p>
   </div>
 <% end %>

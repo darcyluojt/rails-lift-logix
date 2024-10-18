@@ -1,23 +1,21 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-#
+# # This file should ensure the existence of records required to run the application in every environment (production,
+# # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+# # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Example:
+# #
+# #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+# #     MovieGenre.find_or_create_by!(name: genre_name)
+# #   end
+# #
 puts "destroying everything"
-  Exercise.destroy_all
-  User.destroy_all
   Log.destroy_all
   Workout.destroy_all
   SplitExercise.destroy_all
   Split.destroy_all
   Programme.destroy_all
-
-
+  Exercise.destroy_all
+  User.destroy_all
 
 
 puts "creating exercises"
@@ -210,8 +208,9 @@ puts "creating exercises"
   puts "create 1 log for each split exercise"
   # for each workout, create a log for each split exercise
   # for each log, set weight and repetitions
-  Workout.all.each do |workout|
-    workout.split_exercises.each do |split_exercise|
+  workouts = Workout.all
+  workouts.each do |workout|
+    workout.split.split_exercises.each do |split_exercise|
       Log.create!(workout: workout, split_exercise: split_exercise, weight: rand(30..60), repetitions: rand(6..12))
     end
   end
