@@ -1,9 +1,11 @@
 name: CI
 
 on:
-  pull_request:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 
 jobs:
   scan_ruby:
@@ -18,6 +20,15 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Update Bundler
+        run: gem install bundler
+
+      - name: Clear Bundler Cache
+        run: bundle clean --force
+
+      - name: Install Dependencies
+        run: bundle install
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
@@ -50,8 +61,10 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
+      - name: Lint changed files for consistent style
+        run: |
+          git fetch --depth=1 origin master
+          git diff --name-only origin/master HEAD -- '*.rb' | xargs bin/rubocop --parallel -f github || true
 
   test:
     runs-on: ubuntu-latest

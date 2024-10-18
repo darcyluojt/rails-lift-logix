@@ -12,7 +12,8 @@ class ProgrammesController < ApplicationController
   def create
     @programme = Programme.new(programme_params)
     @programme.user = current_user
-    @programme.save
+    @programme.save!
+
     redirect_to programme_splits_path(@programme)
 
   end
