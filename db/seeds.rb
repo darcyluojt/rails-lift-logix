@@ -25,152 +25,182 @@ puts "creating exercises"
     {
       "name": "Barbell Bench Press",
       "description": "The barbell bench press is a fundamental push exercise that targets the chest, shoulders, and triceps. It is performed lying on a bench while pressing a barbell upward.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://assets.gqindia.com/photos/5e54b97ee1cde5000859f2d6/16:9/w_2240,c_limit/This%20is%20how%20you%20should%20actually%20bench-press.jpg"
     },
     {
       "name": "Dumbbell Chest Press",
       "description": "The dumbbell chest press strengthens the chest, shoulders, and triceps. Using dumbbells allows for a greater range of motion compared to a barbell.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://cdn.shopify.com/s/files/1/1497/9682/files/Incline_Press.jpg?v=1672493170"
     },
     {
       "name": "Overhead Shoulder Press",
       "description": "The overhead shoulder press works the shoulders and triceps, focusing on building strength and size in the upper body. It can be done standing or seated with a barbell or dumbbells.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://mirafit.co.uk/wp/wp-content/uploads/2024/03/shoulder-press-using-Mirafit-Black-Olympic-Rubber-Bumper-Plates-1024x683.jpg"
     },
     {
       "name": "Push-Ups",
       "description": "Push-ups are a bodyweight exercise targeting the chest, shoulders, and triceps. It also engages the core and helps build overall upper body strength.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://images.pexels.com/photos/4720291/pexels-photo-4720291.jpeg"
     },
     {
       "name": "Incline Bench Press",
       "description": "The incline bench press emphasizes the upper portion of the chest and shoulders. It's performed with a barbell or dumbbells on a bench set at an incline.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://storage.googleapis.com/flex-web-media-prod/content/images/wp-content/uploads/2024/05/best-incline-bench-angle.jpg"
     },
     {
       "name": "Dumbbell Lateral Raises",
       "description": "Dumbbell lateral raises primarily target the lateral deltoids, helping to build wider shoulders and improve shoulder definition.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://www.bodybuilding.com/images/2017/october/the-only-dumbbell-lateral-raise-article-you-need-header-v2-830x467.jpg"
     },
     {
       "name": "Tricep Dips",
       "description": "Tricep dips are a bodyweight exercise that focus on strengthening the triceps, shoulders, and chest. They can be performed using parallel bars or a bench.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://www.dmoose.com/cdn/shop/articles/1_2505ceb9-03f9-4543-a376-547c903565a0.jpg?v=1647856436"
     },
     {
       "name": "Cable Chest Fly",
       "description": "The cable chest fly isolates the chest muscles and helps in developing pectoral definition and strength. It is performed using a cable machine.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://uk.gymreapers.com/cdn/shop/articles/header-image-01_Cable-chest-workout---maximizing-your-muscle-growth.jpg?v=1721671171&width=1400"
     },
     {
       "name": "Dumbbell Front Raises",
       "description": "Dumbbell front raises target the front deltoid muscles, improving shoulder strength and definition. It can be performed with dumbbells or a barbell.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://www.puregym.com/media/tkfphmle/dumbbell-front-raises.jpg?quality=80"
     },
     {
       "name": "Tricep Pushdowns",
       "description": "Tricep pushdowns target the triceps, helping to increase arm size and strength. It's typically performed using a cable machine with a straight or rope attachment.",
-      "category_array": ["push", "upperbody"]
+      "category_array": ["push", "upperbody"],
+      "image_url": "https://cdn.shopify.com/s/files/1/0618/9462/3460/files/Ending-Postion-800x451.jpg"
     },
     {
       "name": "Pull-Ups",
       "description": "Pull-ups are a bodyweight exercise that primarily targets the back, biceps, and shoulders. It helps build pulling strength and upper body muscle mass.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://www.mystrengthtraining.com/wp-content/uploads/2024/04/pull-ups-gym-front.jpg"
     },
     {
       "name": "Lat Pulldown",
       "description": "The lat pulldown targets the latissimus dorsi and helps develop back width and pulling strength. It's performed on a cable machine.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://www.trainheroic.com/wp-content/uploads/2023/03/AdobeStock_423445223-TH-jpg.webp"
     },
     {
       "name": "Barbell Row",
       "description": "The barbell row is a compound movement that targets the back, shoulders, and biceps. It strengthens the pulling muscles of the upper body.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://thefitnessmaverick.com/wp-content/uploads/2020/10/F265CF38-5010-4DBF-BE3A-68C68A2A7E02_1_201_a-e1602589179813.jpeg"
     },
     {
       "name": "Dumbbell Row",
       "description": "The dumbbell row works the back, particularly the lats, as well as the biceps and shoulders. It is typically performed one arm at a time.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://i0.wp.com/ericrobertsfitness.com/wp-content/uploads/2023/05/alora-griffiths-LOnMc8Rp1Qs-unsplash-1-scaled.jpg?resize=1024%2C683&ssl=1"
     },
     {
       "name": "Face Pulls",
       "description": "Face pulls target the rear deltoids and upper back muscles, helping improve posture and shoulder health. It is performed using a cable machine with a rope attachment.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://storage.googleapis.com/flex-web-media-prod/content/images/wp-content/uploads/2024/02/what-muscle-does-face-pulls-work-768x512-1.webp"
     },
     {
       "name": "Seated Cable Row",
       "description": "The seated cable row targets the muscles of the upper and lower back, improving pulling strength and back thickness.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://swolverine.com/cdn/shop/articles/Single_Arm_Cable_Row_-_Swolverine_1200x.jpg?v=1635722226"
     },
     {
       "name": "Dumbbell Bicep Curl",
       "description": "Dumbbell bicep curls isolate the biceps, helping to build arm size and strength. They can be performed standing or seated.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://images.squarespace-cdn.com/content/v1/57fd0bd537c5817117c2ac09/1574286883298-4PCUCRNP6D4VFTUXW9GX/Grace+Brown+Fitness+Dumbbell+Bicep+Curl+Supinated.jpg"
     },
     {
       "name": "Barbell Bicep Curl",
       "description": "The barbell bicep curl is a classic exercise that isolates the biceps, promoting growth and strength in the upper arms.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://steelsupplements.com/cdn/shop/articles/shutterstock_1330227065_1000x.jpg?v=1636217410"
     },
     {
       "name": "Hammer Curls",
       "description": "Hammer curls target both the biceps and the brachialis, helping to build strength and size in the upper arms. It's performed using dumbbells with a neutral grip.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://www.trainheroic.com/wp-content/uploads/2023/02/AdobeStock_417412809-TH-jpg.webp"
     },
     {
       "name": "T-Bar Row",
       "description": "The T-bar row is a compound exercise that targets the back, particularly the lats and middle back. It's great for developing pulling strength and back thickness.",
-      "category_array": ["pull", "upperbody"]
+      "category_array": ["pull", "upperbody"],
+      "image_url": "https://cdn.muscleandstrength.com/sites/default/files/t-bar-row.jpg"
     },
     {
       "name": "Barbell Squat",
       "description": "The barbell squat is a foundational leg exercise that targets the quads, glutes, and hamstrings. It also engages the core for stability.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://res.cloudinary.com/peloton-cycle/image/fetch/f_auto,c_limit,w_3840,q_90/https://downloads.ctfassets.net/6ilvqec50fal/1EHc7nNZ4VqgTjyKoNnyvd/08a03edafa59cf2f74b591765cc68c62/Barbell-squat.jpg"
     },
     {
       "name": "Leg Press",
       "description": "The leg press targets the quads, hamstrings, and glutes, providing an effective way to build leg strength while placing less stress on the lower back.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://ironbullstrength.com/cdn/shop/articles/leg_press_knee_pain.webp?v=1695829075"
     },
     {
       "name": "Lunges",
       "description": "Lunges are a unilateral leg exercise that works the quads, hamstrings, glutes, and calves. It helps improve balance, coordination, and leg strength.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://www.trainheroic.com/wp-content/uploads/2022/09/AdobeStock_244171985-TH.jpg"
     },
     {
       "name": "Romanian Deadlift",
       "description": "The Romanian deadlift targets the hamstrings, glutes, and lower back. It helps improve posterior chain strength and flexibility.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://mirafit.co.uk/wp/wp-content/uploads/2023/02/woman-doing-a-Romanian-deadlift-with-Mirafit-Orange-Camo-Bumper-Plates.jpg"
     },
     {
       "name": "Leg Extension",
       "description": "The leg extension isolates the quadriceps, helping to build strength and muscle mass in the front of the thighs.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://hips.hearstapps.com/hmg-prod/images/young-adult-man-doing-leg-extension-exercise-in-gym-royalty-free-image-1678280881.jpg"
     },
     {
       "name": "Leg Curl",
       "description": "Leg curls isolate the hamstrings, helping to strengthen the muscles in the back of the thigh and improve overall leg stability.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://blogscdn.thehut.net/app/uploads/sites/449/2021/12/shutterstock_1471492208-1-ftt-min_1639667937.jpg"
     },
     {
       "name": "Bulgarian Split Squat",
       "description": "The Bulgarian split squat is a unilateral leg exercise that targets the quads, glutes, and hamstrings while also improving balance and stability.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://swolverine.com/cdn/shop/articles/Bulgarian_Split_Squats_800x.jpg?v=1630455282"
     },
     {
       "name": "Calf Raises",
       "description": "Calf raises focus on the calves, specifically the gastrocnemius and soleus muscles, helping to improve lower leg strength and definition.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://atlantisstrength.com/app/uploads/2022/01/calf-raise-scaled-1248x924.jpg"
     },
     {
       "name": "Deadlifts",
       "description": "The deadlift is a compound movement that targets the entire posterior chain, including the back, glutes, hamstrings, and core. It's a full-body strength-building exercise.",
-      "category_array": ["legs", "lowerbody", "pull"]
+      "category_array": ["legs", "lowerbody", "pull"],
+      "image_url": "https://gunsmithfitness.com/cdn/shop/articles/should-i-do-deadlift-or-squats-first-839450.jpg?v=1703061566&width=2048"
     },
     {
       "name": "Goblet Squat",
       "description": "The goblet squat is a squat variation where a dumbbell or kettlebell is held at chest level, targeting the quads, glutes, and core for improved lower body strength.",
-      "category_array": ["legs", "lowerbody"]
+      "category_array": ["legs", "lowerbody"],
+      "image_url": "https://www.themanual.com/wp-content/uploads/sites/9/2019/10/kettlebell-squat.jpg?fit=1500%2C1000&p=1"
     }
   ]
   exercises.each do |exercise|
@@ -184,8 +214,8 @@ puts "creating exercises"
   programme = Programme.create!(name: "Programme 1", user: user, weeks: 4, splits_per_week: 2)
 
   puts "create 3 splits"
-  split1 = Split.create!(programme: programme, category: "upperbody")
-  split2 = Split.create!(programme: programme, category: "lowerbody")
+  split1 = Split.create!(programme: programme, category: "Upperbody")
+  split2 = Split.create!(programme: programme, category: "Lowerbody")
 
   puts "create 3 split exercises for each split"
   # create 2 exercises for each split
