@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :split_exercises, only: [:destroy]
   # Defines the root path route ("/")
   # root "posts#index"
+  get "account", to: "pages#account"
 end
