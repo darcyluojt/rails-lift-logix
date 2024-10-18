@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :exercises, only: []
     resources :split_exercises, only: [:create]
     resources :workouts, only: [:index, :create]
+    resources :logs, only: %i[new create]
   end
 
   resources :split_exercises, only: [:destroy]
