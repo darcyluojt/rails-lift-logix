@@ -1,6 +1,85 @@
+
 #progressbar {
   margin: 20px;
-  width: 400px;
+  width: 100%; /* Full width for mobile */
+  max-width: 400px; /* Limit max width on larger screens */
   height: 8px;
   position: relative;
+}
+
+body {
+  color: #333; // text color for all
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 50px auto 20px;
+}
+
+// Programme and exercise container (same specs)
+.programmes-container,
+.exercises-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+// Programme Card stuff & Exercise Card
+.programme-card,
+.exercise-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 100%;
+  max-width: 400px; // Max width for larger screens
+  transition: transform 0.2s ease;
+}
+
+.programme-card:hover,
+.exercise-card:hover {
+  transform: scale(1.02);
+}
+
+.programme-name {
+  color: $primary-accent;
+  font-weight: bold;
+}
+
+// Progress text attrivutes
+.progress-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+.exercise-logs {
+  list-style-type: none; // take away bullet points
+  padding: 0; // take away padding (both to keep text compact)
+  margin: 0; // take away margin
+}
+
+.exercise-logs li {
+  font-size: 14px;
+  color: #666;
+}
+
+// Responsive stuff
+@media (max-width: 768px) {
+  #progressbar {
+    width: 100%; // entire width for mobile view
+  }
+
+  // Card adjustments for mobile view
+  .programme-card,
+  .exercise-card {
+    width: 90%;
+    padding: 10px; // smaller padding space for mobile
+  }
 }

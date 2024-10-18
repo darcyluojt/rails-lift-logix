@@ -1,0 +1,148 @@
+.programme-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  margin: 60px auto 20px;
+}
+
+// Card container
+.splits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Card stuff below
+.split-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 450px; // increassed width for bigger screen sizes
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 15px;
+  transition: width 0.2s ease-in-out;
+}
+
+.split-image {
+  width: 100%;
+  height: 200px;
+}
+
+.split-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.split-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary-accent;
+  margin-bottom: 10px;
+}
+
+.exercise-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exercise-list li {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+// Action buttons for edit and confirm
+.split-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+// Universal button stuff for this page
+.btn-action {
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  margin: 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+// Button stuff
+.btn-edit {
+  background-color: #e74c3c;
+}
+
+.btn-edit:hover {
+  background-color: #c0392b;
+  transform: scale(1.01);
+}
+
+.btn-confirm {
+  background-color: #2ecc71;
+}
+
+.btn-confirm:hover {
+  background-color: #27ae60;
+  transform: scale(1.01);
+}
+
+// smaller screen stuff
+@media (max-width: 768px) {
+  .split-card {
+    max-width: 90%;
+  }
+
+  .splits-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .split-image {
+    height: 150px;
+  }
+
+  .btn-action {
+    max-width: 90%; // button changes for smaller screens
+  }
+}
+
+// larger screen stuff
+@media (min-width: 1200px) {
+  .split-card {
+    max-width: 500px; // Cards to be wider on larger screens
+  }
+
+
+  .btn-action {
+    margin: 0 10px; // gap between buttons
+  }
+
+  .split-actions {
+    gap: 20px; // gap between buttons as well
+  }
+}
