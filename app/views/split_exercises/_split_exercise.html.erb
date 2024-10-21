@@ -1,0 +1,30 @@
+<%# exercise-card split_exercise.exericse with id for turbo%>
+    <div id="split_exercise-<%= split_exercise.id %>">
+      <div class="exercise-card">
+        <%# exercise card left for image %>
+        <div class="exercise-image">
+          <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
+        </div>
+        <%# exercise card right for exercise name, description, previous weights and delete button %>
+        <div class="exercise-info">
+          <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
+          <p class="exercise-description"><%= split_exercise.exercise.description.truncate(60) %></p>
+          <% unless split_exercise.exercise.logs.empty? %>
+            <% heavy = split_exercise.exercise.logs.sort_by(&:weight).first %>
+            <div class="heaviest-lift-container">
+              <p class="heaviest-lift-text">
+                Your heaviest lift: <br>
+                <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
+              </p>
+            </div>
+          <% end %>
+          <div class="delete-button">
+            <%= link_to split_exercise_path(split_exercise),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+              class: "btn-delete" do %>
+                <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -22,6 +22,6 @@ class WorkoutsController < ApplicationController
     @workout.done = true
     @workout.save
     flash[:notice] = "Congratulations! You've completed your workout!"
-    redirect_to programme_splits_path(@workout.split.programme)
+    redirect_to account_path
   end
 end

@@ -3,12 +3,6 @@
 <p class="form-description primary-color">Choose your exercises</p>
 
 <!-- Display the exercises that have been added to the split -->
-<div class="split-exercises">
-  <div id="exercise-card">
-    turbo
-  </div>
-
-</div>
 <% @split.split_exercises.each do |split_exercise| %>
   <div class="exercise-card">
     <div class="exercise-image">
@@ -41,10 +35,9 @@
 <% end %>
 
 
-
-
 <div class="form-container">
-  <%= simple_form_for [@split, @split_exercise] do |f| %>
+  <%= simple_form_for [@split, @split_exercise],
+    html: {data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
     <div class="form-inputs">
       <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
     </div>
