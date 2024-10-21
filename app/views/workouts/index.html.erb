@@ -1,7 +1,7 @@
 <h1 class="form-title">What do you want<br>to do today?</h1>
 
 
-<div class="splits-container">
+<div class="workout-container">
   <% @splits.each do |split| %>
     <%= simple_form_for [split, @workout], html: { class: 'split-form' } do |f| %>
       <div class="split-card" onclick="this.closest('.split-form').submit();"> <%# TURNS THE CARD INTO A SUBMIT BUTTON  %>

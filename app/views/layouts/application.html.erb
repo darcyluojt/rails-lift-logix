@@ -29,7 +29,7 @@
         <%= render "shared/flashes" %>
         <%= yield %>
       </div>
-      <% #render shared/footer when footer has been made %>
+      <%= render "shared/bottom_navbar" %>
     <% else %>
       <%= yield %>
     <% end %>
