@@ -15,7 +15,7 @@
         <% completed_logs.each do |log| %>
           <div class="d-flex">
             <% i += 1 %>
-            <p class='text-center' style='color:black'><strong>Set <%= i %>:</strong> <%= log.weight %>kg <%= log.repetitions %> reps </p>
+            <p style='color:black; font-size:12px; margin-bottom: 10px;'><strong>Set <%= i %>:</strong> <%= log.weight %>kg <%= log.repetitions %> reps </p>
             <div>
               <%= link_to log, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this log?" }, class: "btn-delete" do %>
                 <i class="fa-solid fa-trash"></i>
