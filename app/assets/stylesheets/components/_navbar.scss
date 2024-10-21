@@ -2,6 +2,7 @@
   justify-content: space-between;
   // background: $navbar-bg;
   background-color: $navbar-bg;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +16,16 @@
 .avatar {
   width: 40px;
   height: 40px;
+}
+
+.nav-link {
+  margin-right: 10px;
+  color: rgb(229, 229, 229);
+}
+
+.username {
+  margin: 0;
+  font-size: 14px;
+  margin-right: 6px; // may need to add more margin once we have moved the accounts avatar to the bottom navbar
+  padding: 0;
 }
