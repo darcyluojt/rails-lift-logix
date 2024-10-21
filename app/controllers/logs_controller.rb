@@ -17,14 +17,20 @@ class LogsController < ApplicationController
   def create
     @split_exercise = SplitExercise.find(params[:split_exercise_id])
     @workout = Workout.find(params[:workout_id])
+    @split = @workout.split
+    @split_exercises = @split.split_exercises
+    @logs = @workout.logs
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
     @log.workout = @workout
     if @log.weight.nil?
       @log.weight = 0
     end
-    @log.save!
-    redirect_to workout_logs_path(@workout)
+    if @log.save
+      redirect_to workout_logs_path(@workout)
+    else
+      render :index, status: :unprocessable_entity
+    end
     # if @log.save
     #   respond_to do |format|
     #     format.turbo_stream do

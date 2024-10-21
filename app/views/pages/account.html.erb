@@ -5,14 +5,16 @@
 <h2 class="section-title">My Programmes</h2>
 <div class="programmes-container">
   <% @programmes.each do |programme| %>
-    <div class='programme-card block border card'>
-      <h4 class="programme-name"><%= programme.name %></h4>
-      <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
-      <p class="categories"><%= programme.splits.map(&:category).join(', ') %></p>
-      <% total_workouts = programme.splits_per_week * programme.weeks %>
-      <div id="progressbar" data-controller="progress"></div>
-      <p class="progress-text"><%= programme.workouts.count %> done, <%= total_workouts - programme.workouts.count %> to go</p>
-    </div>
+    <%= link_to programme do  %>
+      <div class='programme-card block border card'>
+        <h4 class="programme-name"><%= programme.name %></h4>
+        <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
+        <p class="categories"><%= programme.splits.map(&:category).join(' - ') %></p>
+        <% total_workouts = programme.splits_per_week * programme.weeks %>
+        <div id="progressbar" data-controller="progress"></div>
+        <p class="progress-text"><%= programme.workouts.count %> done, <%= total_workouts - programme.workouts.count %> to go</p>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

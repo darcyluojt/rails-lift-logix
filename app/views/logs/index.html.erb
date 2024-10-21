@@ -9,6 +9,18 @@
     </div>
     <div class="exercise-info">
       <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
+      <% unless split_exercise.logs.empty? %>
+        <% heavy = split_exercise.logs.sort_by(&:weight).first %>
+        <% last = split_exercise.logs.last %>
+        <div class="heaviest-lift-container">
+          <p class="heaviest-lift-text">
+            Your heaviest lift: <br>
+            <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
+              Your last lift: <br>
+              <%= last.weight %>kg for <%= last.repetitions %> reps on <%= last.workout.date.strftime('%d/%b/%Y') %>
+            </p>
+        </div>
+      <% end %>
       <% completed_logs = @workout.logs.where(split_exercise: split_exercise) %>
       <% if completed_logs %>
         <% i = 0 %>
@@ -34,3 +46,4 @@
     </div>
   </div>
 <% end %>
+<%= button_to 'Workout Completed?', account_path, method: :patch, class: "form-btn" %>

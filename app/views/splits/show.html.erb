@@ -1,6 +1,14 @@
+<%# Title of the split page %>
 <h2 class="form-title">Creating Your <%= @split.category.capitalize %> Split</h2>
 <p class="form-description primary-color">Choose your exercises</p>
 
+<!-- Display the exercises that have been added to the split -->
+<div class="split-exercises">
+  <div id="exercise-card">
+    turbo
+  </div>
+
+</div>
 <% @split.split_exercises.each do |split_exercise| %>
   <div class="exercise-card">
     <div class="exercise-image">
@@ -31,6 +39,9 @@
     </div>
   </div>
 <% end %>
+
+
+
 
 <div class="form-container">
   <%= simple_form_for [@split, @split_exercise] do |f| %>

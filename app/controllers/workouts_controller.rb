@@ -16,4 +16,12 @@ class WorkoutsController < ApplicationController
       render 'index', status: :unprocessable_entity
     end
   end
+
+  def update
+    @workout = Workout.find(params[:id])
+    @workout.done = true
+    @workout.save
+    flash[:notice] = "Congratulations! You've completed your workout!"
+    redirect_to programme_splits_path(@workout.split.programme)
+  end
 end
