@@ -20,8 +20,14 @@ class LogsController < ApplicationController
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
     @log.workout = @workout
-    @log.save!
-    redirect_to workout_logs_path(@workout)
+    if @log.weight.nil?
+      @log.weight = 0
+    end
+    if @log.save
+      redirect_to workout_logs_path(@workout)
+    else
+      render :index, status: :unprocessable_entity
+    end
     # if @log.save
     #   respond_to do |format|
     #     format.turbo_stream do
@@ -33,6 +39,13 @@ class LogsController < ApplicationController
     # else
     #   render :new, status: :unprocessable_entity
     # end
+  end
+
+  def destroy
+    @log = Log.find(params[:id])
+    @workout = @log.workout
+    @log.destroy
+    redirect_to workout_logs_path(@workout)
   end
 
   private

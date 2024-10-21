@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :workouts, only: :create
   end
 
-  resources :workouts, only: [] do
+  resources :workouts, only: [:update] do
     resources :logs, only: :index
     resources :split_exercises, only: [] do
       resources :logs, only: :create
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :split_exercises, only: [:destroy]
+  resources :logs, only: [:destroy]
   get "account", to: "pages#account"
   # Defines the root path route ("/")
   # root "posts#index"

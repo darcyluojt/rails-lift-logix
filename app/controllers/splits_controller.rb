@@ -14,7 +14,9 @@ class SplitsController < ApplicationController
       @exercises = Exercise.where("'#{@split.category.downcase}' = ANY(category_array)")
     end
     @exercises =  @exercises - @split.exercises
+
     @split_exercise = SplitExercise.new
+
     if @split.programme.splits.last == @split
       @next_split = nil
     else
