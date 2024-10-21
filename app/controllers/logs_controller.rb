@@ -16,6 +16,7 @@ class LogsController < ApplicationController
 
   def create
     @split_exercise = SplitExercise.find(params[:split_exercise_id])
+    raise
     @workout = Workout.find(params[:workout_id])
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
@@ -33,6 +34,13 @@ class LogsController < ApplicationController
     # else
     #   render :new, status: :unprocessable_entity
     # end
+  end
+
+  def destroy
+    @log = Log.find(params[:id])
+    @workout = @log.workout
+    @log.destroy
+    redirect_to workout_logs_path(@workout)
   end
 
   private

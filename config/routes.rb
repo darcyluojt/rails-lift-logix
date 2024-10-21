@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :split_exercises, only: [:destroy]
+  resources :logs, only: [:destroy]
   get "account", to: "pages#account"
   # Defines the root path route ("/")
   # root "posts#index"
