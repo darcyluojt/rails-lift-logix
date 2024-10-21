@@ -1,9 +1,6 @@
-.workout-container {
-  .splits-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+#new_workout {
+  display: flex;
+  justify-content: center;
 }
+
+// Need to revisit this page and change the css to accom the desktop view
