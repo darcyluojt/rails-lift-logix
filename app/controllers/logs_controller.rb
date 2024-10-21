@@ -16,11 +16,13 @@ class LogsController < ApplicationController
 
   def create
     @split_exercise = SplitExercise.find(params[:split_exercise_id])
-    raise
     @workout = Workout.find(params[:workout_id])
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
     @log.workout = @workout
+    if @log.weight.nil?
+      @log.weight = 0
+    end
     @log.save!
     redirect_to workout_logs_path(@workout)
     # if @log.save
