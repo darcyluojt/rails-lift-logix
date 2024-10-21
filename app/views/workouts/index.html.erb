@@ -1,8 +1,25 @@
- <h1>What do you want to do today?</h1>
+<h1 class="form-title">What do you want<br>to do today?</h1>
 
- <% @splits.each do |split| %>
-  <%= simple_form_for [split, @workout] do |f| %>
-   <%= f.submit split.category.capitalize  %>
-   <hr>
+
+<div class="splits-container">
+  <% @splits.each do |split| %>
+    <%= simple_form_for [split, @workout], html: { class: 'split-form' } do |f| %>
+      <div class="split-card" onclick="this.closest('.split-form').submit();"> <%# TURNS THE CARD INTO A SUBMIT BUTTON  %>
+        <div class="split-image">
+          <%= image_tag split.split_exercises.first.exercise.image_url, alt: split.category %>
+        </div>
+
+        <div class="split-info">
+          <h3 class="split-title"><%= split.category %> Split</h3>
+          <ul class="exercise-list">
+            <% split.split_exercises.each do |split_exercise| %>
+              <li><%= split_exercise.exercise.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
   <% end %>
- <% end %>
+</div>
+
+<%# WE MAY WANT TO INCLUDE A CUSTOM CLASS FOR 'WORKOUT-CARD' THAT WILL ALLOW US TO MAKE THIS WIDER FOR THIS PAGE? @DARCY / @MAIMUNAH %>

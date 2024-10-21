@@ -14,7 +14,7 @@
         <% i = 0 %>
         <% completed_logs.each do |log| %>
           <% i += 1 %>
-          <p class='text-center' style='color:black'><strong>Set <%= i %>:</strong>      <%= log.weight %>kg       <%= log.repetitions %> reps       </p>
+          <p style='color:black; font-size:12px; margin-bottom: 10px;'><strong>Set <%= i %>:</strong>      <%= log.weight %>kg       <%= log.repetitions %> reps       </p>
         <% end %>
       <% end %>
       <%= simple_form_for [@workout, split_exercise, @log] do |f| %>
