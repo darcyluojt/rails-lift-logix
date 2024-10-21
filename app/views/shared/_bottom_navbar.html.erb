@@ -1,0 +1,20 @@
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+  <div class="container-fluid d-flex justify-content-around">
+
+    <%= link_to account_path do %>
+      <i class="fa-solid fa-chart-line"></i>
+      <span>My progress</span>
+    <% end %>
+
+    <%= link_to new_programme_path do %>
+      <i class="fa-solid fa-plus"></i>
+      <span>Create</span>
+    <% end %>
+
+    <%= link_to "#" do %>
+      <i class="fa-solid fa-dumbbell"></i>
+      <span>My workouts</span>
+    <% end %>
+
+  </div>
+</nav>
