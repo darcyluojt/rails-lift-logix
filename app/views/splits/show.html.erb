@@ -18,14 +18,16 @@
             Your heaviest lift: <br>
             <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
           </p>
-
-          <%= link_to split_exercise_path(split_exercise),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
-            class: "btn-delete" do %>
-              <i class="fa-solid fa-trash"></i>
-          <% end %>
         </div>
       <% end %>
+
+      <div class="delete-button">
+        <%= link_to split_exercise_path(split_exercise),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+          class: "btn-delete" do %>
+            <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
