@@ -17,9 +17,6 @@ class LogsController < ApplicationController
   def create
     @split_exercise = SplitExercise.find(params[:split_exercise_id])
     @workout = Workout.find(params[:workout_id])
-    @split = @workout.split
-    @split_exercises = @split.split_exercises
-    @logs = @workout.logs
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
     @log.workout = @workout
