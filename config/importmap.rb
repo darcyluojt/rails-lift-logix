@@ -10,3 +10,4 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "chartkick", to: "chartkick.js" # @5.0.1
 pin "Chart.bundle", to: "Chart.bundle.js" # @4.4.5
 pin "@kurkle/color", to: "@kurkle--color.js" # @0.3.2
+pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.2/dist/sweetalert2.all.js"

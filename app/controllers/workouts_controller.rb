@@ -21,7 +21,5 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @workout.done = true
     @workout.save
-    flash[:notice] = "Congratulations! You've completed your workout!"
-    redirect_to account_path
   end
 end
