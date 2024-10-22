@@ -1,8 +1,12 @@
 class WorkoutsController < ApplicationController
   def index
-    @programme = Programme.find(params[:programme_id])
-    @splits = @programme.splits
-    @workout = Workout.new
+    if current_user.programmes.empty?
+      redirect_to new_programme_path
+    else
+      @programme = Programme.find(params[:programme_id])
+      @splits = @programme.splits
+      @workout = Workout.new
+    end
   end
 
   def create
