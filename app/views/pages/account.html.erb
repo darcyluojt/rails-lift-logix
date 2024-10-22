@@ -46,7 +46,7 @@
           <li><%= date %>: 1RM - <%= one_rep_max.round(1) %></li>
         <% end %>
       </ul>
-      <%= line_chart log_history %>
+      <%= line_chart log_history,xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM" %>
     </div>
   <% end %>
 </div>
