@@ -1,0 +1,141 @@
+// Log Card Styles
+
+.log-card {
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 15px auto;
+  overflow: hidden;
+  padding: 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    max-width: 90%;
+    margin: 15px auto;
+    width: 90%;
+  }
+}
+
+.log-card-image {
+  flex: 30%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  margin-left: -15px;
+  margin-top: -15px;
+  margin-bottom: -15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.log-card-info {
+  flex: 70%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.log-card-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.log-details {
+  font-size: 12px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.log-card-btn-delete {
+  background-color: transparent;
+  border: none;
+  color: #d2d2d2;
+  cursor: pointer;
+  font-size: 1em;
+  transition: color 0.2s ease-in-out;
+
+  i {
+    margin-left: 5px;
+  }
+}
+
+.log-card-btn-delete:hover {
+  color: #ff0000;
+}
+
+// Log form wrapper
+.log-card-form-wrapper {
+  margin-top: 10px;
+}
+
+// Log form styles
+.log-card-form {
+  display: flex;
+  align-items: center;
+  gap: 10px; // Added space between form elements
+}
+
+.log-card-input {
+  width: 80px; // Reduced width for shorter input fields
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: 40px; // Keep input height consistent with the button
+}
+
+.log-card-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none; // Remove background
+  border: none; // Remove border
+  cursor: pointer;
+
+  i {
+    font-size: 18px; // Icon size adjustment
+    color: $primary-accent; // Set icon color to match your design
+  }
+
+  &:hover i {
+    color: darken($primary-accent, 10%);
+  }
+}
+
+// Additional form styles
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+// Ensure consistent height across inputs and buttons
+input[type="submit"],
+.log-card-input {
+  height: 40px;
+}
+
+// Responsive for mobile
+@media (max-width: 768px) {
+  .log-card {
+    max-width: 400px;
+    margin: 15px auto;
+  }
+}
