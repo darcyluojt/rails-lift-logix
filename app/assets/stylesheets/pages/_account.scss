@@ -1,8 +1,7 @@
-
 #progressbar {
   margin: 20px;
-  width: 100%; /* Full width for mobile */
-  max-width: 400px; /* Limit max width on larger screens */
+  width: 100%;
+  max-width: 400px; // limit size on large screen
   height: 8px;
   position: relative;
 }

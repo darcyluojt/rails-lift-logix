@@ -1,58 +1,63 @@
-<%# Title of the split page %>
-<h2 class="form-title">Creating Your <%= @split.category.capitalize %> Split</h2>
-<p class="form-description primary-color">Choose your exercises</p>
 
-<!-- Display the exercises that have been added to the split -->
-<% @split.split_exercises.each do |split_exercise| %>
-  <div class="exercise-card">
-    <div class="exercise-image">
-      <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
-    </div>
+<div class="anchor-wrapper"
+    data-controller="append-anchor"
+    data-append-anchor-path-value="<%= split_path(@split) %>"
+    data-append-anchor-anchor-value="add-exercise">
+  <%# Title of the split page %>
+  <h2 class="form-title">Creating Your <%= @split.category.capitalize %> Split</h2>
+  <p class="form-description primary-color">Choose your exercises</p>
 
-    <div class="exercise-info">
-      <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
-      <p class="exercise-description"><%= split_exercise.exercise.description.truncate(60) %></p>
+  <!-- Display the exercises that have been added to the split -->
+  <% @split.split_exercises.each do |split_exercise| %>
+    <div class="exercise-card">
+      <div class="exercise-image">
+        <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
+      </div>
 
-      <% unless split_exercise.exercise.logs.empty? %>
-        <% heavy = split_exercise.exercise.logs.sort_by(&:weight).first %>
-        <div class="heaviest-lift-container">
-          <p class="heaviest-lift-text">
-            Your heaviest lift: <br>
-            <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
-          </p>
-        </div>
-      <% end %>
+      <div class="exercise-info">
+        <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
+        <p class="exercise-description"><%= split_exercise.exercise.description.truncate(60) %></p>
 
-      <div class="delete-button">
-        <%= link_to split_exercise_path(split_exercise),
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
-          class: "btn-delete" do %>
-            <i class="fa-solid fa-trash"></i>
+        <% unless split_exercise.exercise.logs.empty? %>
+          <% heavy = split_exercise.exercise.logs.sort_by(&:weight).first %>
+          <div class="heaviest-lift-container">
+            <p class="heaviest-lift-text">
+              Your heaviest lift: <br>
+              <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
+            </p>
+          </div>
         <% end %>
+
+        <div class="delete-button">
+          <%= link_to split_exercise_path(split_exercise),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
+            class: "btn-delete" do %>
+              <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
       </div>
     </div>
+  <% end %>
+
+
+  <div class="form-container" id="add-exercise">
+    <%= simple_form_for [@split, @split_exercise] do |f| %>
+      <div class="form-inputs">
+        <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Add Exercise", class: "form-btn" %>
+      </div>
+    <% end %>
+
+    <% if @split.split_exercises.length >= 3 %>
+      <div class="form-links">
+        <% if @next_split %>
+          <%= link_to 'Next Split', split_path(@next_split), class: "secondary-link" %>
+        <% else %>
+          <%= link_to 'View your program', programme_path(@split.programme), class: "secondary-link"  %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-
-<div class="form-container">
-  <%= simple_form_for [@split, @split_exercise],
-    html: {data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
-    <div class="form-inputs">
-      <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
-    </div>
-    <div class="form-actions">
-      <%= f.submit "Add Exercise", class: "form-btn" %>
-    </div>
-  <% end %>
-
-  <% if @split.split_exercises.length >= 3 %>
-    <div class="form-links">
-      <% if @next_split %>
-        <%= link_to 'Next Split', split_path(@next_split), class: "secondary-link" %>
-      <% else %>
-        <%= link_to 'View your program', programme_path(@split.programme), class: "secondary-link"  %>
-      <% end %>
-    </div>
-  <% end %>
 </div>
