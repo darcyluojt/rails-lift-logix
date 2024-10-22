@@ -99,6 +99,7 @@ body {
   text-decoration: none;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
+  margin-top: 50px;
 }
 
 .logout-btn:hover {
@@ -108,6 +109,20 @@ body {
 .logout-btn-container {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 10px;
+}
+
+.new-programme-btn {
+  display: inline-block;
+  background-color: rgba(226, 255, 224, 0.199);
+  color: white;
+  padding: 8px 20px;
+  border: 1px solid rgb(92, 255, 179);
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  margin-top: 20px;
+ // Need to get rid of the text decoration, and adding this above does not seem to work??
 }
