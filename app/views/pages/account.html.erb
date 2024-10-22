@@ -26,30 +26,69 @@
     <% end %>
   <% end %>
 </div>
+<h2 class="section-title">My Workouts</h2>
+<%= month_calendar(events: @workouts, attribute: :date) do |workout| %>
+  <div class="workout">
+    <p>Category: <%= workout.split.category</p> %>
+    <p>Date: <%= workout.date</p> %>
+  </div>
+<% end %>
+
+
 
 <h2 class="section-title">My Progress</h2>
-<div class="exercises-container">
-  <% @exercises.each do |exercise| %>
-    <div class='exercise-card block border card'>
-      <h4 class="exercise-name"><%= exercise.name %></h4>
-      <ul class="exercise-logs">
-        <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
-        <% log_history = {} %>
-        <% logs.each do |log| %>
-          <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
-          <% date = log.workout.date.strftime('%Y-%m-%d') %>
-          <% if log_history[date].nil? || log_history[date] < one_rep_max%>
-            <% log_history[date] = one_rep_max %>
+<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+  <!-- Carousel Inner -->
+  <div class="carousel-inner">
+     <!-- Set 1st one as active class -->
+     <div class="carousel-item active">
+        <div class="exercise-card d-block border card">
+          <% logs = @exercises.first.logs.sort_by { |log| log.workout.date }.reverse %>
+          <% log_history = {} %>
+          <% logs.each do |log| %>
+            <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
+            <% date = log.workout.date.strftime('%Y-%m-%d') %>
+            <% if log_history[date].nil? || log_history[date] < one_rep_max %>
+              <% log_history[date] = one_rep_max.round(1) %>
+            <% end %>
           <% end %>
-        <% end %>
-        <% log_history.each do |date, one_rep_max| %>
-          <li><%= date %>: 1RM - <%= one_rep_max.round(1) %></li>
-        <% end %>
-      </ul>
-      <%= line_chart log_history,xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM" %>
-    </div>
-  <% end %>
+          <%= line_chart log_history, xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM", title: @exercises.first.name %>
+        </div>
+      </div>
+
+    <% @exercises.each_with_index do |exercise, index| %>
+      <div class="carousel-item">
+        <div class="exercise-card d-block border card">
+          <ul class="exercise-logs">
+            <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
+            <% log_history = {} %>
+            <% logs.each do |log| %>
+              <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
+              <% date = log.workout.date.strftime('%Y-%m-%d') %>
+              <% if log_history[date].nil? || log_history[date] < one_rep_max %>
+                <% log_history[date] = one_rep_max.round(1) %>
+              <% end %>
+            <% end %>
+          </ul>
+          <!-- Display Chart -->
+          <%= line_chart log_history, xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM", title: exercise.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" data-bs-target="#carouselIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" data-bs-target="#carouselIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
 </div>
+
+
 
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure you want to log out?' }, class: 'logout-btn' %>
 </div>
