@@ -10,5 +10,6 @@ class PagesController < ApplicationController
     @splits = @user.splits
     @exercises = @splits.map { |split| split.exercises }.flatten.uniq
     @exercises = @exercises.reject { |exercise| exercise.logs.empty? }
+
   end
 end
