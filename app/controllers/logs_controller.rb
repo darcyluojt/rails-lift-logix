@@ -20,25 +20,12 @@ class LogsController < ApplicationController
     @log = Log.new(log_params)
     @log.split_exercise = @split_exercise
     @log.workout = @workout
-    if @log.weight.nil?
-      @log.weight = 0
-    end
+    @log.weight = 0 if @log.weight.nil?
     if @log.save
       redirect_to workout_logs_path(@workout)
     else
       render :index, status: :unprocessable_entity
     end
-    # if @log.save
-    #   respond_to do |format|
-    #     format.turbo_stream do
-    #       render turbo_stream: turbo_stream.append(:form, partial: "logs/form",
-    #         locals: { split_exercise: @split_exercise, log: @log })
-    #     end
-    #     format.html { redirect_to new_split_log_path(@split_exercise.split) }
-    #   end
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
   def destroy
