@@ -14,13 +14,31 @@
         <span>Create</span>
       </div>
     <% end %>
+    <% if user_signed_in?%>
+      <% if current_user.programmes.empty? %>
+        <%= link_to new_programme_path do %>
+          <div class="nav-icon-text">
+            <i class="fa-solid fa-dumbbell" style ="font-size:18px"></i>
+            <span>My workouts</span>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to programme_workouts_path(current_user.programmes.last) do %>
+          <div class="nav-icon-text">
+            <i class="fa-solid fa-dumbbell" style ="font-size:18px"></i>
+            <span>My workouts</span>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <div class="nav-icon-text">
+          <i class="fa-solid fa-dumbbell" style ="font-size:18px"></i>
+          <span>My workouts</span>
+        </div>
+        <% end %>
 
-    <%= link_to programme_workouts_path(current_user.programmes.last) do %>
-      <div class="nav-icon-text">
-        <i class="fa-solid fa-dumbbell" style ="font-size:18px"></i>
-        <span>My workouts</span>
-      </div>
-    <% end %>
+      <% end %>
 
     <%= link_to account_path do %>
       <div>
