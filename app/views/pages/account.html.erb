@@ -27,11 +27,13 @@
   <% end %>
 </div>
 <h2 class="section-title">My Workouts</h2>
-<%= month_calendar(events: @workouts, attribute: :date) do |workout| %>
-  <div class="workout">
-    <p>Category: <%= workout.split.category</p> %>
-    <p>Date: <%= workout.date</p> %>
-  </div>
+<%= month_calendar(events: @workouts) do |date, workouts| %>
+  <%= date %>
+  <% workouts.each do |workout| %>
+    <div>
+      <%= workout.split.category%>✅
+    </div>
+  <% end %>
 <% end %>
 
 
