@@ -1,8 +1,0 @@
-<%= simple_form_for [split, split_exercise] do |f| %>
-    <div class="form-inputs">
-      <%= f.association :exercise, collection: exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
-    </div>
-    <div class="form-actions">
-      <%= f.submit "Add Exercise", class: "form-btn" %>
-    </div>
-  <% end %>
