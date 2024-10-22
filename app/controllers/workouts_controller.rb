@@ -1,6 +1,8 @@
 class WorkoutsController < ApplicationController
   def index
     if current_user.programmes.empty?
+      # pop an alert
+      flash[:alert] = "Please create a programme first"
       redirect_to new_programme_path
     else
       @programme = Programme.find(params[:programme_id])
