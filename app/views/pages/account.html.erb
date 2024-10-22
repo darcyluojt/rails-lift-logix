@@ -11,9 +11,18 @@
         <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
         <p class="categories"><%= programme.splits.map(&:category).join(' - ') %></p>
         <% total_workouts = programme.splits_per_week * programme.weeks %>
-        <div id="progressbar" data-controller="progress"></div>
-        <p class="progress-text"><%= programme.workouts.count %> done, <%= total_workouts - programme.workouts.count %> to go</p>
-      </div>
+        <% completion_rate = ((programme.workouts.count.to_f / total_workouts)*100).round(2) %>
+        <% if completion_rate > 100 %>
+          <% completion_rate = 100 %>
+        <% end %>
+        <% unless completion_rate.zero? %>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: <%= completion_rate %>%;" aria-valuenow="<%= completion_rate %>" aria-valuemin="0" aria-valuemax="100">
+              <%= completion_rate %>% Completed
+            </div>
+          </div>
+          <% end %>
+        </div>
     <% end %>
   <% end %>
 </div>
@@ -24,14 +33,23 @@
     <div class='exercise-card block border card'>
       <h4 class="exercise-name"><%= exercise.name %></h4>
       <ul class="exercise-logs">
-        <% exercise.logs.each do |log| %>
-          <li><%= log.workout.date %>: 1RM - <%= log.weight * (36 / (37 - log.repetitions)) %></li>
+        <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
+        <% log_history = {} %>
+        <% logs.each do |log| %>
+          <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
+          <% date = log.workout.date.strftime('%Y-%m-%d') %>
+          <% if log_history[date].nil? || log_history[date] < one_rep_max%>
+            <% log_history[date] = one_rep_max %>
+          <% end %>
+        <% end %>
+        <% log_history.each do |date, one_rep_max| %>
+          <li><%= date %>: 1RM - <%= one_rep_max.round(1) %></li>
         <% end %>
       </ul>
+      <%= line_chart log_history %>
     </div>
   <% end %>
+</div>
 
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure you want to log out?' }, class: 'logout-btn' %>
-
-
 </div>

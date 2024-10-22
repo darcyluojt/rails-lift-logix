@@ -206,42 +206,107 @@ puts "creating exercises"
   end
 
   puts "create a user"
-  user = User.create!(email: "abc@abc.com", password: "123456", username: "abc", weight: 70, height: 180, date_of_birth: "1990-01-01")
+  user = User.create!(email: "abc@abc.com", password: "123456", username: "Moana", weight: 70, height: 180, date_of_birth: "1990-01-01")
 
   puts "create a programme"
-  programme = Programme.create!(name: "Programme 1", user: user, weeks: 4, splits_per_week: 2)
+  programme = Programme.create!(name: "Super woman", user: user, weeks: 4, splits_per_week: 2)
 
   puts "create 3 splits"
   split1 = Split.create!(programme: programme, category: "Upperbody")
-  split2 = Split.create!(programme: programme, category: "Lowerbody")
+  split2 = Split.create!(programme: programme, category: "Fullbody")
 
   puts "create 3 split exercises for each split"
   # create 2 exercises for each split
   SplitExercise.create!(exercise: Exercise.first, split: split1)
   SplitExercise.create!(exercise: Exercise.second, split: split1)
+  SplitExercise.create!(exercise: Exercise.third, split: split1)
   SplitExercise.create!(exercise: Exercise.last, split: split2)
+  SplitExercise.create!(exercise: Exercise.find_by(name:"Deadlifts"), split: split2)
   SplitExercise.create!(exercise: Exercise.first, split: split2)
 
 
   puts "create 4 workouts for each split"
-  workout1_1 = Workout.create!(split: Split.first, date: "2024-01-01")
-  workout1_2 = Workout.create!(split: Split.first, date: "2024-01-08")
-  workout1_3 = Workout.create!(split: Split.first, date: "2024-01-15")
-  workout1_4 = Workout.create!(split: Split.first, date: "2024-01-22")
-  workout2_1 = Workout.create!(split: Split.last, date: "2024-01-09")
-  workout2_2 = Workout.create!(split: Split.last, date: "2024-01-16")
-  workout2_3 = Workout.create!(split: Split.last, date: "2024-01-23")
-  workout2_4 = Workout.create!(split: Split.last, date: "2024-01-30")
+  workoutu_1 = Workout.create!(split: split1, date: "2024-09-01")
+  workoutu_2 = Workout.create!(split: split1, date: "2024-09-08")
+  workoutu_3 = Workout.create!(split: split1, date: "2024-09-15")
+  workoutu_4 = Workout.create!(split: split1, date: "2024-09-22")
+  workoutf_1 = Workout.create!(split: split2, date: "2024-09-05")
+  workoutf_2 = Workout.create!(split: split2, date: "2024-09-10")
+  workoutf_3 = Workout.create!(split: split2, date: "2024-09-18")
+  workoutf_4 = Workout.create!(split: split2, date: "2024-09-30")
 
 
   puts "create 1 log for each split exercise"
-  # for each workout, create a log for each split exercise
-  # for each log, set weight and repetitions
-  workouts = Workout.all
-  workouts.each do |workout|
-    workout.split.split_exercises.each do |split_exercise|
-      Log.create!(workout: workout, split_exercise: split_exercise, weight: rand(30..60), repetitions: rand(6..12))
-    end
-  end
+  # Fetching exercises by name (assuming Exercise model exists)
+bench_press_exercise = Exercise.find_by(name: "Barbell Bench Press")
+dumbbell_chest_press_exercise = Exercise.find_by(name: "Dumbbell Chest Press")
+overhead_shoulder_press_exercise = Exercise.find_by(name: "Overhead Shoulder Press")
+goblet_squat_exercise = Exercise.find_by(name: "Goblet Squat")
+deadlift_exercise = Exercise.find_by(name: "Deadlifts")
+
+# Fetching split-specific SplitExercise instances
+split1_bench_press = SplitExercise.find_by(exercise: bench_press_exercise, split: split1)
+split2_bench_press = SplitExercise.find_by(exercise: bench_press_exercise, split: split2)
+split1_dumbbell_chest_press = SplitExercise.find_by(exercise: dumbbell_chest_press_exercise, split: split1)
+split1_overhead_shoulder_press = SplitExercise.find_by(exercise: overhead_shoulder_press_exercise, split: split1)
+split2_goblet_squat = SplitExercise.find_by(exercise: goblet_squat_exercise, split: split2)
+split2_deadlift = SplitExercise.find_by(exercise: deadlift_exercise, split: split2)
+
+# Logs for Split 1 (workoutu_1 - workoutu_4)
+
+# Barbell Bench Press progress (continuous progression across both splits)
+Log.create!(workout: workoutu_1, split_exercise: split1_bench_press, weight: 40, repetitions: 8)  # 2024-09-01
+Log.create!(workout: workoutu_1, split_exercise: split1_bench_press, weight: 40, repetitions: 8)
+Log.create!(workout: workoutu_1, split_exercise: split1_bench_press, weight: 40, repetitions: 8)
+Log.create!(workout: workoutu_2, split_exercise: split1_bench_press, weight: 42.5, repetitions: 8)  # 2024-09-08
+Log.create!(workout: workoutu_2, split_exercise: split1_bench_press, weight: 42.5, repetitions: 8)
+Log.create!(workout: workoutu_2, split_exercise: split1_bench_press, weight: 42.5, repetitions: 7)
+Log.create!(workout: workoutu_3, split_exercise: split1_bench_press, weight: 45, repetitions: 9)  # 2024-09-15
+Log.create!(workout: workoutu_4, split_exercise: split1_bench_press, weight: 47.5, repetitions: 9)  # 2024-09-22
+
+# Dumbbell Chest Press progress
+Log.create!(workout: workoutu_1, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 10)
+Log.create!(workout: workoutu_1, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 10)
+Log.create!(workout: workoutu_1, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 8)
+Log.create!(workout: workoutu_2, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 12)
+Log.create!(workout: workoutu_2, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 12)
+Log.create!(workout: workoutu_2, split_exercise: split1_dumbbell_chest_press, weight: 20, repetitions: 10)
+Log.create!(workout: workoutu_3, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 8)
+Log.create!(workout: workoutu_3, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 8)
+Log.create!(workout: workoutu_3, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 6)
+Log.create!(workout: workoutu_4, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 11)
+Log.create!(workout: workoutu_4, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 12)
+Log.create!(workout: workoutu_4, split_exercise: split1_dumbbell_chest_press, weight: 22.5, repetitions: 11)
+
+# Overhead Shoulder Press progress
+Log.create!(workout: workoutu_1, split_exercise: split1_overhead_shoulder_press, weight: 30, repetitions: 8)
+Log.create!(workout: workoutu_2, split_exercise: split1_overhead_shoulder_press, weight: 32.5, repetitions: 8)
+Log.create!(workout: workoutu_3, split_exercise: split1_overhead_shoulder_press, weight: 35, repetitions: 9)
+Log.create!(workout: workoutu_4, split_exercise: split1_overhead_shoulder_press, weight: 37.5, repetitions: 9)
+
+# Logs for Split 2 (workoutf_1 - workoutf_4)
+
+# Barbell Bench Press progress in Split 2 (continuation from Split 1)
+Log.create!(workout: workoutf_1, split_exercise: split2_bench_press, weight: 40, repetitions: 12)  # 2024-09-05
+Log.create!(workout: workoutf_1, split_exercise: split2_bench_press, weight: 40, repetitions: 10)
+Log.create!(workout: workoutf_1, split_exercise: split2_bench_press, weight: 40, repetitions: 8)
+Log.create!(workout: workoutf_2, split_exercise: split2_bench_press, weight: 42.5, repetitions: 10)  # 2024-09-10
+Log.create!(workout: workoutf_2, split_exercise: split2_bench_press, weight: 42.5, repetitions: 8)
+Log.create!(workout: workoutf_2, split_exercise: split2_bench_press, weight: 42.5, repetitions: 7)
+Log.create!(workout: workoutf_3, split_exercise: split2_bench_press, weight: 45, repetitions: 11)  # 2024-09-18
+Log.create!(workout: workoutf_4, split_exercise: split2_bench_press, weight: 47.5, repetitions: 8)  # 2024-09-30
+
+# Goblet Squat progress
+Log.create!(workout: workoutf_1, split_exercise: split2_goblet_squat, weight: 25, repetitions: 10)
+Log.create!(workout: workoutf_2, split_exercise: split2_goblet_squat, weight: 27.5, repetitions: 10)
+Log.create!(workout: workoutf_3, split_exercise: split2_goblet_squat, weight: 30, repetitions: 11)
+Log.create!(workout: workoutf_4, split_exercise: split2_goblet_squat, weight: 32.5, repetitions: 11)
+
+# Deadlift progress
+Log.create!(workout: workoutf_1, split_exercise: split2_deadlift, weight: 60, repetitions: 6)
+Log.create!(workout: workoutf_2, split_exercise: split2_deadlift, weight: 65, repetitions: 6)
+Log.create!(workout: workoutf_3, split_exercise: split2_deadlift, weight: 70, repetitions: 7)
+Log.create!(workout: workoutf_4, split_exercise: split2_deadlift, weight: 75, repetitions: 7)
+
 
 puts "done"
