@@ -146,3 +146,24 @@
     gap: 20px; // gap between buttons as well
   }
 }
+
+// Small edit button for programme index page
+.sm-edit-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 0;
+  margin: 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  background-color: #c0392b;
+}
+
+.small-btn-container {
+  display: flex;
+  justify-content: center;
+}

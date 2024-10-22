@@ -4,6 +4,7 @@
   <% @splits.each do |split| %>
     <div class="split-card">
       <div class="split-image">
+        <%# Add if statement to show default image if no image available %>
         <%= image_tag split.split_exercises.first.exercise.image_url, alt: split.category %>
       </div>
 

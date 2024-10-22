@@ -5,7 +5,7 @@
 <h2 class="section-title">My Programmes</h2>
 <div class="programmes-container">
   <% @programmes.each do |programme| %>
-    <%= link_to programme do  %>
+    <%= link_to programme_workouts_path(programme) do  %>
       <div class='programme-card block border card'>
         <h4 class="programme-name"><%= programme.name %></h4>
         <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>

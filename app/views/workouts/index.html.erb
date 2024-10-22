@@ -5,8 +5,13 @@
   <% @splits.each do |split| %>
     <%= simple_form_for [split, @workout], html: { class: 'split-form' } do |f| %>
       <div class="split-card" onclick="this.closest('.split-form').submit();"> <%# TURNS THE CARD INTO A SUBMIT BUTTON  %>
+
         <div class="split-image">
-          <%= image_tag split.split_exercises.first.exercise.image_url, alt: split.category %>
+          <% if split.split_exercises.present? && split.split_exercises.first.exercise.image_url.present? %>
+            <%= image_tag split.split_exercises.first.exercise.image_url, alt: split.category %>
+          <% else %>
+            <%= image_tag 'default-image.jpg', alt: 'Default image' %>
+          <% end %>
         </div>
 
         <div class="split-info">
@@ -23,3 +28,7 @@
 </div>
 
 <%# WE MAY WANT TO INCLUDE A CUSTOM CLASS FOR 'WORKOUT-CARD' THAT WILL ALLOW US TO MAKE THIS WIDER FOR THIS PAGE? @DARCY / @MAIMUNAH %>
+
+<div class="small-btn-container">
+  <%= link_to "Edit programme", split_path(@splits.first), class: "btn-action sm-edit-btn" %>
+</div>
