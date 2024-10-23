@@ -41,10 +41,15 @@
       <% end %>
 
     <%= link_to account_path do %>
-      <div>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "nav-avatar" %>
+      <div class="nav-avatar">
+        <% if current_user.profile_image.attached? %>
+          <%= cl_image_tag(current_user.profile_image.key) %>
+        <% else %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
       </div>
     <% end %>
+
 
 
   </div>
