@@ -3,10 +3,21 @@
 <% end %>
 
 <h2 class="section-title">My Programmes</h2>
+
+<% if current_user.programmes.empty? %>
+  <%= link_to new_programme_path  do %>
+  <div class="d-flex justify-content-center">
+    <div class="new-programme-btn">
+      <p class="my-0 align-items-center"> Create a programme!</p>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+
 <div class="programmes-container">
   <% @programmes.each do |programme| %>
     <%= link_to programme_workouts_path(programme) do  %>
-      <div class='programme-card block border card'>
+      <div class='programme-card'>
         <h4 class="programme-name"><%= programme.name %></h4>
         <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
         <p class="categories"><%= programme.splits.map(&:category).join(' - ') %></p>
@@ -26,21 +37,29 @@
     <% end %>
   <% end %>
 </div>
-<h2 class="section-title">My Workouts</h2>
-<%= month_calendar(events: @workouts) do |date, workouts| %>
-  <%= date %>
-  <% workouts.each do |workout| %>
-    <div>
-      <%= workout.split.category%>✅
-    </div>
-  <% end %>
+
 <% end %>
 
 
 
-<h2 class="section-title">My Progress</h2>
-<% if @exercises.empty? %>
-  <p class="no-exercises">You have not logged any exercises yet.</p>
+
+
+  <h2 class="section-title">My Workouts</h2>
+  <%= month_calendar(events: @workouts) do |date, workouts| %>
+    <%= date %>
+    <% workouts.each do |workout| %>
+      <div>
+        <%= workout.split.category%>✅
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+  <h2 class="section-title">My Progress</h2>
+
+  <% if @exercises.empty? %>
+    <p class="d-flex justify-content-center">Your progress will show here when you log some workouts...</p>
   <% else %>
     <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
       <!-- Carousel Inner -->
@@ -96,4 +115,6 @@
 
 
 
-<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure you want to log out?' }, class: 'logout-btn' %>
+<div class="logout-btn-container">
+  <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure you want to log out?' }, class: 'logout-btn' %>
+</div>
