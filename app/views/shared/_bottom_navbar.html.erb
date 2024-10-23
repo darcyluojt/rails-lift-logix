@@ -44,7 +44,7 @@
       <div class="nav-avatar">
        <% if user_signed_in?%>
         <% if current_user.profile_image.attached? %>
-          <%= cl_image_tag(current_user.profile_image.key) %>
+          <%= cl_image_tag current_user.profile_image.key, class: "nav-avatar" %>
         <% else %>
           <i class="fa-solid fa-user"></i>
         <% end %>

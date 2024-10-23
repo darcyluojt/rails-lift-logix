@@ -11,7 +11,7 @@
 
  <div class="account-avatar">
    <% if current_user.profile_image.attached? %>
-    <%= cl_image_tag(current_user.profile_image.key) %>
+    <%= cl_image_tag current_user.profile_image.key, class: "account-avatar" %>
    <% else %>
      <i class="fa-solid fa-user"></i>
    <% end %>
