@@ -12,10 +12,11 @@ class ProgrammesController < ApplicationController
   def create
     @programme = Programme.new(programme_params)
     @programme.user = current_user
-    @programme.save!
-
-    redirect_to programme_splits_path(@programme)
-
+    if @programme.save
+      redirect_to programme_splits_path(@programme), notice: 'Programme was successfully created.'
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
 
   private

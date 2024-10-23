@@ -1,0 +1,10 @@
+<h2 class="form-title">Schedule your workouts</h2>
+<div class="form-container">
+  <%= simple_form_for @workout do |f| %>
+    <div class="form-inputs">
+      <%= f.association :split, collection: @splits, prompt: "Choose a split", value_method: :id, label_method: :category  %>
+      <%= f.input :date, as: :date, html5: true %>
+      <%= f.submit "Schedule Workout", class: "form-btn", style: "border: none;" %>
+    </div>
+  <% end %>
+</div>

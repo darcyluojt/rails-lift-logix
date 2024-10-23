@@ -124,5 +124,60 @@ body {
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
   margin-top: 20px;
- // Need to get rid of the text decoration, and adding this above does not seem to work??
+ // THE TEXT DECORATION NONE WAS NOT WORKING FOR THE LINK ON THIS BUTTON
+ // SO I HAVE REMOVED THE TEXT DECORATION FOR ALL LINKS IN THE BELOW
+ // ON THE ANCHOR TAG CSS
+}
+
+.new-programme-btn a {
+  text-decoration: none !important;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// Account header
+
+.account-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.account-avatar {
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid $primary-accent;
+  // add margin here
+}
+
+.acc-header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+
+  p {
+    color: white;
+    margin-bottom: 0px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  h6 {
+    color: $primary-accent;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+}
+
+.account-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 50px auto 35px;
 }

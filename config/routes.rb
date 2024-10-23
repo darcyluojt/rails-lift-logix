@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :workouts, only: :create
   end
 
-  resources :workouts, only: [:update] do
+  resources :workouts, only: [:update, :new, :create] do
     resources :logs, only: :index
     resources :split_exercises, only: [] do
       resources :logs, only: :create
