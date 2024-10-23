@@ -160,7 +160,8 @@
   border-radius: 8px;
   font-size: 16px;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-  background-color: #c0392b;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .small-btn-container {
