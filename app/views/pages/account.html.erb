@@ -82,7 +82,11 @@
     <%= date %>
     <% workouts.each do |workout| %>
       <div>
-        <p class="text-center mt-1">✅</p>
+        <% if workout.done %>
+          <p class="text-center mt-1">✅</p>
+        <% else %>
+          <p class="text-center mt-1"> 📆</p>
+        <% end %>
         <p class="text-center"><%= workout.split.category%><p>
       </div>
     <% end %>
@@ -103,7 +107,7 @@
       <div class="carousel-inner">
         <% @exercises.each_with_index do |exercise, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="chart-card">
+            <div class="exercise-card chart-card">
                 <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
                 <% log_history = {} %>
                 <% logs.each do |log| %>
