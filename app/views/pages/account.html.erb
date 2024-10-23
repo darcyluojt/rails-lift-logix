@@ -2,6 +2,34 @@
   <%= cl_image_tag(current_user.profile_image.key, width: 100) %>
 <% end %>
 
+
+
+
+<%# <h2 class="account-title">My Account</h2> %>
+
+<div class="account-header">
+
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "account-avatar" %>
+
+<div class="acc-header-info">
+  <h6> <%= current_user.username %> </h6>
+  <p> <%= current_user.weight %>kg • <%= current_user.height %>cm</p>
+  <p style="margin-bottom:0px;"><%= current_user.email %></p>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
 <h2 class="section-title">My Programmes</h2>
 
 <% if current_user.programmes.empty? %>
@@ -42,8 +70,7 @@
 
 
 
-
-
+  <div class="calendar-container">
   <h2 class="section-title">My Workouts</h2>
   <%= month_calendar(events: @workouts) do |date, workouts| %>
     <%= date %>
@@ -53,6 +80,9 @@
       </div>
     <% end %>
   <% end %>
+  </div>
+
+
 
 
 

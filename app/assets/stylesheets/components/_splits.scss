@@ -29,17 +29,20 @@
   text-align: center;
 }
 
-.form-btn {
+
+.form-btn,
+.signup-btn,
+.login-btn {
   display: block;
   width: 100%;
   padding: 12px 20px;
   border-radius: 8px;
-  background-color: $primary-accent;
   color: white;
   text-align: center;
+  margin-bottom: 10px; // Spacing between buttons
   cursor: pointer;
   font-size: 16px;
-  border: none;
+  background-color: $primary-accent;
 }
 
 // Exercise card
