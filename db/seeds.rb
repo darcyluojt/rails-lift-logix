@@ -226,21 +226,21 @@ puts "creating exercises"
 
 
   puts "create 4 workouts for each split"
-  workoutu_1 = Workout.create!(split: split1, date: "2024-09-01")
-  workoutu_2 = Workout.create!(split: split1, date: "2024-09-08")
-  workoutu_3 = Workout.create!(split: split1, date: "2024-09-15")
-  workoutu_4 = Workout.create!(split: split1, date: "2024-09-22")
+  workoutu_1 = Workout.create!(split: split1, date: "2024-09-01", done: true)
+  workoutu_2 = Workout.create!(split: split1, date: "2024-09-08", done: true)
+  workoutu_3 = Workout.create!(split: split1, date: "2024-09-15", done: true)
+  workoutu_4 = Workout.create!(split: split1, date: "2024-09-22", done: true)
 
   # full body split workouts testing squat logs across multiple workouts
-  workoutf_1 = Workout.create!(split: split2, date: "2024-09-05")
-  workoutf_2 = Workout.create!(split: split2, date: "2024-09-10")
-  workoutf_3 = Workout.create!(split: split2, date: "2024-09-18")
-  workoutf_4 = Workout.create!(split: split2, date: "2024-09-30")
-  workoutf_5 = Workout.create!(split: split2, date: "2024-10-05")
-  workoutf_6 = Workout.create!(split: split2, date: "2024-10-10")
-  workoutf_7 = Workout.create!(split: split2, date: "2024-10-15")
-  workoutf_8 = Workout.create!(split: split2, date: "2024-10-20")
-  workoutf_9 = Workout.create!(split: split2, date: "2024-10-23")
+  workoutf_1 = Workout.create!(split: split2, date: "2024-09-05", done: true)
+  workoutf_2 = Workout.create!(split: split2, date: "2024-09-10", done: true)
+  workoutf_3 = Workout.create!(split: split2, date: "2024-09-18", done: true)
+  workoutf_4 = Workout.create!(split: split2, date: "2024-09-30", done: true)
+  workoutf_5 = Workout.create!(split: split2, date: "2024-10-05", done: true)
+  workoutf_6 = Workout.create!(split: split2, date: "2024-10-10", done: true)
+  workoutf_7 = Workout.create!(split: split2, date: "2024-10-15", done: true)
+  workoutf_8 = Workout.create!(split: split2, date: "2024-10-20", done: true)
+  workoutf_9 = Workout.create!(split: split2, date: "2024-10-23", done: true)
 
 
   puts "create 1 log for each split exercise"
