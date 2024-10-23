@@ -1,8 +1,8 @@
 <h1>Current Workout</h1>
 <h3><%= @workout.date %></h3>
-<h3><%= @split.category %></h3>
+<h3><%= @workout.split.category %></h3>
 
-<% @split_exercises.each do |split_exercise| %>
+<% @workout.split.split_exercises.each do |split_exercise| %>
   <div class='log-card'>
     <div class="log-card-image">
       <%= image_tag split_exercise.exercise.image_url, alt: split_exercise.exercise.name %>
