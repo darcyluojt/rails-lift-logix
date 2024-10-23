@@ -11,15 +11,29 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  def create
+  def new
+    @splits = current_user.splits
     @workout = Workout.new
-    @workout.split = Split.find(params[:split_id])
-    @workout.date = Date.today
-    @workout.done = false
-    if @workout.save
-      redirect_to workout_logs_path(@workout)
-    else
-      render 'index', status: :unprocessable_entity
+  end
+
+  def create
+    if params[:split_id] # This means the request came from the nested route
+      @workout = Workout.new
+      @workout.split = Split.find(params[:split_id])
+      @workout.date = Date.today
+      @workout.done = false
+      if @workout.save
+        redirect_to workout_logs_path(@workout), notice: "You can start lifting now!"
+      else
+        render 'index', status: :unprocessable_entity
+      end
+    else # This is the top-level workout creation
+      @workout = Workout.new(workout_params)
+      if @workout.save
+        redirect_to account_path, notice: "Your workout has been scheduled!"
+      else
+        render 'new', status: :unprocessable_entity
+      end
     end
   end
 
@@ -27,5 +41,11 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @workout.done = true
     @workout.save
+  end
+
+  private
+
+  def workout_params
+    params.require(:workout).permit(:split_id, :date)
   end
 end
