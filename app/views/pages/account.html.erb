@@ -82,7 +82,12 @@
     <%= date %>
     <% workouts.each do |workout| %>
       <div>
-        <%= workout.split.category%>✅
+        <% if workout.done %>
+          <p class="text-center mt-1">✅</p>
+        <% else %>
+          <p class="text-center mt-1"> 📆</p>
+        <% end %>
+        <p class="text-center"><%= workout.split.category%><p>
       </div>
     <% end %>
   <% end %>
@@ -100,26 +105,9 @@
     <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
       <!-- Carousel Inner -->
       <div class="carousel-inner">
-        <!-- Set 1st one as active class -->
-        <div class="carousel-item active">
-            <div class="exercise-card d-block border card">
-              <% logs = @exercises.first.logs.sort_by { |log| log.workout.date }.reverse %>
-              <% log_history = {} %>
-              <% logs.each do |log| %>
-                <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
-                <% date = log.workout.date.strftime('%Y-%m-%d') %>
-                <% if log_history[date].nil? || log_history[date] < one_rep_max %>
-                  <% log_history[date] = one_rep_max.round(1) %>
-                <% end %>
-              <% end %>
-              <%= line_chart log_history, xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM", title: @exercises.first.name %>
-            </div>
-          </div>
-
         <% @exercises.each_with_index do |exercise, index| %>
-          <div class="carousel-item">
-            <div class="exercise-card d-block border card">
-              <ul class="exercise-logs">
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <div class="exercise-card chart-card">
                 <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
                 <% log_history = {} %>
                 <% logs.each do |log| %>
@@ -129,9 +117,8 @@
                     <% log_history[date] = one_rep_max.round(1) %>
                   <% end %>
                 <% end %>
-              </ul>
               <!-- Display Chart -->
-              <%= line_chart log_history, xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM", title: exercise.name %>
+              <%= line_chart log_history, xtitle: "Date", ytitle: "1 Rep Max(kg)", label: "1RM", title: exercise.name, empty: "No data for now. Lift and log your lift in Lift Logix. We will show your progress here" %>
             </div>
           </div>
         <% end %>
