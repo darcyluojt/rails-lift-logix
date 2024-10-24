@@ -53,7 +53,7 @@
 
 
   <div class="calendar-container">
-  <h2 class="section-title">My Workouts</h2>
+  <h2 class="section-title">Schedule</h2>
   <%= turbo_frame_tag 'calendar' do %>
     <%= month_calendar(events: @workouts) do |date, workouts| %>
       <%= date %>
