@@ -1,4 +1,4 @@
-<h2 class="form-title">Schedule your workouts</h2>
+<%= turbo_frame_tag 'calendar' do %>
 <div class="form-container">
   <%= simple_form_for @workout do |f| %>
     <div class="form-inputs">
@@ -8,3 +8,4 @@
     </div>
   <% end %>
 </div>
+<% end %>

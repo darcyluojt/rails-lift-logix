@@ -53,20 +53,23 @@
 
 
   <div class="calendar-container">
-  <h2 class="section-title">My Workouts</h2>
-  <%= month_calendar(events: @workouts) do |date, workouts| %>
-    <%= date %>
-    <% workouts.each do |workout| %>
-      <div>
-        <% if workout.done %>
-          <p class="text-center mt-1">✅</p>
-        <% else %>
-          <p class="text-center mt-1"> 📆</p>
-        <% end %>
-        <%= link_to workout.split.category, workout_logs_path(workout), class: 'text-center', style:"color: black;" %>
-      </div>
+  <h2 class="section-title">Schedule</h2>
+  <%= turbo_frame_tag 'calendar' do %>
+    <%= month_calendar(events: @workouts) do |date, workouts| %>
+      <%= date %>
+      <% workouts.each do |workout| %>
+        <div class='d-flex align-items-center justify-content-center'>
+          <% if workout.done %>
+            <%= link_to "✅", workout_logs_path(workout) %>
+          <% else %>
+            <%= link_to "📆", workout_logs_path(workout) %>
+
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
+
   </div>
 
 
@@ -85,7 +88,7 @@
         <% @exercises.each_with_index do |exercise, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="exercise-card chart-card">
-                <% logs = exercise.logs.sort_by { |log| log.workout.date }.reverse %>
+                <% logs = @user_logs.select { |log| log.split_exercise.exercise_id == exercise.id }%>
                 <% log_history = {} %>
                 <% logs.each do |log| %>
                   <% one_rep_max = log.weight * (1 + (log.repetitions / 30.0)) %>
