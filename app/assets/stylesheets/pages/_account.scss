@@ -23,6 +23,15 @@ body {
   margin: 50px auto 20px;
 }
 
+.account-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 90px auto 20px !important;
+
+}
+
 // Programme and exercise container (same specs)
 .programmes-container,
 .exercises-container,
@@ -165,7 +174,7 @@ a {
   align-items: center;
   gap: 15px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   width: 80%;
 }
 
