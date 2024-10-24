@@ -4,6 +4,11 @@
   max-width: 400px; // limit size on large screen
   height: 8px;
   position: relative;
+  background-color: $primary-accent;
+}
+
+.progress-bar{
+  background-color: $primary-accent;
 }
 
 body {
@@ -21,7 +26,7 @@ body {
 // Programme and exercise container (same specs)
 .programmes-container,
 .exercises-container,
-.calendar-container,
+// .calendar-container,
 .carousel {
   display: flex;
   flex-direction: column;
