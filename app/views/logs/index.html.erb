@@ -1,6 +1,6 @@
-<h1>Current Workout</h1>
-<h3><%= @workout.date %></h3>
-<h3><%= @workout.split.category %></h3>
+  <h2 class="section-title">Current Workout</h2>
+    <h3 class="text-center"><%= @workout.split.category %> • <%= @workout.date.strftime("%B %d") %></h3>
+
 
 <% @workout.split.split_exercises.each do |split_exercise| %>
   <div class='log-card'>
@@ -28,12 +28,12 @@
       <% if completed_logs %>
         <% i = 0 %>
         <% completed_logs.each do |log| %>
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <% i += 1 %>
             <p class="log-details"><strong>Set <%= i %>:</strong> <%= log.weight %>kg <%= log.repetitions %> reps </p>
             <div>
               <%= link_to log, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this log?" }, class: "log-card-btn-delete" do %>
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-trash log-card-delete" style="margin-left: 15px;"> </i>
               <% end %>
             </div>
           </div>

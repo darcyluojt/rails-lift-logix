@@ -21,11 +21,13 @@ body {
 // Programme and exercise container (same specs)
 .programmes-container,
 .exercises-container,
+.calendar-container,
 .carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 15px;
+  // margin-bottom: 50px; MARGIN DOES NOT WORK FOR ALL SECTIONS???
 
   a {
     text-decoration: none;
@@ -154,22 +156,24 @@ a {
 
 .account-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 15px;
   margin: 0 auto;
   margin-top: 30px;
-  width: 60%;
-  max-width: 400px;
+  width: 80%;
 }
 
+
 .account-avatar {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   border: 5px solid $primary-accent;
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
   // add margin here
 }
 
@@ -182,7 +186,7 @@ a {
   p {
     color: white;
     margin-bottom: 0px;
-    font-size: 16px;
+    font-size: 12px;
     margin-top: 5px;
   }
 
@@ -190,6 +194,7 @@ a {
     color: $primary-accent;
     margin-bottom: 0px;
     font-size: 20px;
+    font-weight: bold;
   }
 }
 

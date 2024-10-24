@@ -52,11 +52,11 @@
 .log-card-name {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: $primary-accent;
 }
 
 .log-details {
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
   margin-bottom: 10px;
 }
@@ -129,7 +129,7 @@
 // Ensure consistent height across inputs and buttons
 input[type="submit"],
 .log-card-input {
-  height: 40px;
+  height: 48px;
 }
 
 // Responsive for mobile
@@ -138,4 +138,16 @@ input[type="submit"],
     max-width: 400px;
     margin: 15px auto;
   }
+}
+
+.current-workout-info {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: center;
+}
+
+.log-card-delete {
+  color: rgb(206, 206, 206);
+  margin-left: 20px;
 }
