@@ -56,15 +56,15 @@
 
   <div class="calendar-container">
   <h2 class="account-title">Schedule</h2>
-  <%= turbo_frame_tag 'calendar' do %>
+  <%= turbo_frame_tag 'calendar' do%>
     <%= month_calendar(events: @workouts) do |date, workouts| %>
       <%= date %>
       <% workouts.each do |workout| %>
         <div class='d-flex align-items-center justify-content-center'>
           <% if workout.done %>
-            <%= link_to "✅", workout_logs_path(workout) %>
+            <%= link_to "✅", workout_logs_path(workout), target: '_top' %>
           <% else %>
-            <%= link_to "📆", workout_logs_path(workout) %>
+            <%= link_to "📆", workout_logs_path(workout), target: '_top' %>
 
           <% end %>
         </div>

@@ -30,5 +30,8 @@ class PagesController < ApplicationController
                 .joins(split: { programme: :user })
                 .where(user: { id: @user.id })
                 .where(date: start_date.beginning_of_month..start_date.end_of_month)
+    # create a new workout
+    @splits = current_user.splits
+    @workout = Workout.new
   end
 end

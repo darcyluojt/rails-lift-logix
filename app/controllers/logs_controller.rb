@@ -10,6 +10,7 @@ class LogsController < ApplicationController
     @user_logs = Log.joins(split_exercise: :exercise) # Join split_exercise to exercise
                     .joins(workout: { split: { programme: :user } }) # Join workout -> split -> programme -> user
                     .where(users: { id: current_user.id }, split_exercises: { exercise_id: @exercises.map(&:id) })
+                    .where.not('workouts.date = ?', Time.zone.today)
 
     @heavy_sets = {}
     @exercises.each do |exercise|
