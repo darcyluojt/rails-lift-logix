@@ -16,17 +16,7 @@
       <div class="exercise-info">
         <h5 class="exercise-name"><%= split_exercise.exercise.name %></h5>
         <p class="exercise-description"><%= split_exercise.exercise.description.truncate(60) %></p>
-
-        <% unless split_exercise.exercise.logs.empty? %>
-          <% heavy = split_exercise.exercise.logs.sort_by(&:weight).first %>
-          <div class="heaviest-lift-container">
-            <p class="heaviest-lift-text">
-              Your heaviest lift: <br>
-              <%= heavy.weight %>kg for <%= heavy.repetitions %> reps on <%= heavy.workout.date.strftime('%d/%b/%Y') %>
-            </p>
-          </div>
-        <% end %>
-
+        <%# Removing the heavy set exercise as this for some reason applys to all users %>
         <div class="delete-button">
           <%= link_to split_exercise_path(split_exercise),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this workout?" },
@@ -42,7 +32,7 @@
   <div class="form-container" id="add-exercise">
     <%= simple_form_for [@split, @split_exercise] do |f| %>
       <div class="form-inputs">
-        <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' } %>
+        <%= f.association :exercise, collection: @exercises, label_method: :name, value_method: :id, prompt: 'Choose an exercise', input_html: { class: 'form-select' }, error: 'You have to select an exercise' %>
       </div>
       <div class="form-actions">
         <%= f.submit "Add Exercise", class: "form-btn" %>

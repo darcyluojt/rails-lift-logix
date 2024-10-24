@@ -1,9 +1,21 @@
 class LogsController < ApplicationController
   def index
+    # retrive that specific workout by finding its workout_id
     @workout = Workout.find(params[:workout_id])
+    # fetch exercises user put in the split
     @split = @workout.split
     @split_exercises = @split.split_exercises
-    @logs = @workout.logs
+    @exercises = @split_exercises.map(&:exercise)
+    # get logs for the user filter by the exercises
+    @user_logs = Log.joins(split_exercise: :exercise) # Join split_exercise to exercise
+                    .joins(workout: { split: { programme: :user } }) # Join workout -> split -> programme -> user
+                    .where(users: { id: current_user.id }, split_exercises: { exercise_id: @exercises.map(&:id) })
+
+    @heavy_sets = {}
+    @exercises.each do |exercise|
+      @heavy_sets[exercise.name] =
+        @user_logs.where(split_exercises: { exercise_id: exercise.id }).order(weight: :desc).first
+    end
     @log = Log.new
   end
 

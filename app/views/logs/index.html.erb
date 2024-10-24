@@ -9,10 +9,17 @@
     </div>
     <div class="log-card-info">
       <h5 class="log-card-name"><%= split_exercise.exercise.name %></h5>
-      <% unless split_exercise.logs.empty? %>
-        <% heavy = split_exercise.logs.sort_by(&:weight).first %>
-        <% last = split_exercise.logs.last %>
-      <% end %>
+        <% if @heavy_sets[split_exercise.exercise.name].nil? %>
+          <p class="heaviest-lift-text"> </p>
+        <% elsif @heavy_sets[split_exercise.exercise.name].repetitions < 8 %>
+          <p class="heaviest-lift-text">PB:  <%=  @heavy_sets[split_exercise.exercise.name].weight %> kg for
+        <%=  @heavy_sets[split_exercise.exercise.name].repetitions%> reps.<br>
+          Recommendations: increase reps</p>
+        <% elsif @heavy_sets[split_exercise.exercise.name].repetitions >= 8%>
+          <p class="heaviest-lift-text">PB: <%=  @heavy_sets[split_exercise.exercise.name].weight %> kg for
+        <%=  @heavy_sets[split_exercise.exercise.name].repetitions%> reps.<br>
+          Recommendations: increase weight</p>
+        <% end %>
 
       <% completed_logs = @workout.logs.where(split_exercise: split_exercise) %>
       <% if completed_logs %>
