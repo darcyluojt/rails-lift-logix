@@ -28,9 +28,11 @@
   <% @programmes.each do |programme| %>
     <%= link_to programme_workouts_path(programme) do  %>
       <div class='programme-card'>
-        <h4 class="programme-name"><%= programme.name %></h4>
-        <p><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
-        <p class="categories"><%= programme.splits.map(&:category).join(' - ') %></p>
+          <div class="programme-info">
+            <h4 class="programme-name"><%= programme.name %></h4>
+            <p class="categories my-2"><strong><%= programme.splits.map(&:category).join(' - ') %></strong></p>
+            <p class='my-0'><%= programme.splits_per_week %> workouts per week for <%= programme.weeks %> weeks</p>
+          </div>
         <% total_workouts = programme.splits_per_week * programme.weeks %>
         <% completion_rate = ((programme.workouts.count.to_f / total_workouts)*100).round(2) %>
         <% if completion_rate > 100 %>

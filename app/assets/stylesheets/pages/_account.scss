@@ -1,15 +1,3 @@
-#progressbar {
-  margin: 20px;
-  width: 100%;
-  max-width: 400px; // limit size on large screen
-  height: 8px;
-  position: relative;
-  background-color: $primary-accent;
-}
-
-.progress-bar{
-  background-color: $primary-accent;
-}
 
 body {
   color: #333; // text color for all
@@ -50,7 +38,6 @@ body {
 }
 
 // Programme Card stuff & Exercise Card
-.programme-card,
 .exercise-card {
   background-color: #fff;
   border-radius: 10px;
@@ -108,7 +95,6 @@ body {
   }
 
   // Card adjustments for mobile view
-  .programme-card,
   .exercise-card {
     width: 329.508px;
     padding: 10px; // smaller padding space for mobile
