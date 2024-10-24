@@ -10,15 +10,18 @@
     <div class="log-card-info">
       <h5 class="log-card-name"><%= split_exercise.exercise.name %></h5>
         <% if @heavy_sets[split_exercise.exercise.name].nil? %>
-          <p class="heaviest-lift-text"> </p>
+          <% weight_placeholder = 'kg' %>
+          <% reps_placeholder = 'reps' %>
         <% elsif @heavy_sets[split_exercise.exercise.name].repetitions < 8 %>
           <p class="heaviest-lift-text">PB:  <%=  @heavy_sets[split_exercise.exercise.name].weight %> kg for
-        <%=  @heavy_sets[split_exercise.exercise.name].repetitions%> reps.<br>
-          Recommendations: increase reps</p>
+        <%=  @heavy_sets[split_exercise.exercise.name].repetitions%> reps.</p>
+          <% weight_placeholder = @heavy_sets[split_exercise.exercise.name].weight.to_s + 'kg'%>
+          <% reps_placeholder = (@heavy_sets[split_exercise.exercise.name].repetitions + 2).to_s + ' reps' %>
         <% elsif @heavy_sets[split_exercise.exercise.name].repetitions >= 8%>
           <p class="heaviest-lift-text">PB: <%=  @heavy_sets[split_exercise.exercise.name].weight %> kg for
         <%=  @heavy_sets[split_exercise.exercise.name].repetitions%> reps.<br>
-          Recommendations: increase weight</p>
+          <% weight_placeholder = (@heavy_sets[split_exercise.exercise.name].weight + 2.5).to_s + 'kg' %>
+          <% reps_placeholder = (@heavy_sets[split_exercise.exercise.name].repetitions - 2).to_s + ' reps' %>
         <% end %>
 
       <% completed_logs = @workout.logs.where(split_exercise: split_exercise) %>
@@ -41,10 +44,10 @@
         <div class="log-card-form-wrapper">
           <div class="log-card-form d-flex align-items-center">
             <div class="form-group">
-              <%= f.input_field :weight, placeholder: "kg", label: false, class: "log-card-input" %>
+              <%= f.input_field :weight, placeholder: weight_placeholder, label: false, class: "log-card-input" %>
             </div>
             <div class="form-group">
-              <%= f.input_field :repetitions, placeholder: "reps", label: false, class: "log-card-input" %>
+              <%= f.input_field :repetitions, placeholder: reps_placeholder, label: false, class: "log-card-input" %>
             </div>
             <div class="form-group">
               <button type="submit" style="background: none; border: none;">

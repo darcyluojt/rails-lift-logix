@@ -33,11 +33,9 @@ class LogsController < ApplicationController
     @log.split_exercise = @split_exercise
     @log.workout = @workout
     @log.weight = 0 if @log.weight.nil?
-    if @log.save
-      redirect_to workout_logs_path(@workout)
-    else
-      render :index, status: :unprocessable_entity
-    end
+    return unless @log.save
+
+    redirect_to workout_logs_path(@workout)
   end
 
   def destroy
