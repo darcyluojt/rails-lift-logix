@@ -60,4 +60,4 @@
     </div>
   </div>
 <% end %>
-<%= button_to 'Workout Completed?', workout_path(@workout), method: :patch, class: "form-btn", data: { controller: "alerts", alerts_target: "button" }%>
+<%= button_to 'Complete Workout', workout_path(@workout), method: :patch, class: "form-btn", style: "width: 400px; margin: 0 auto;", data: { controller: "alerts", alerts_target: "button" }%>
