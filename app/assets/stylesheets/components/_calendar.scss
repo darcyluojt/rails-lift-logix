@@ -5,17 +5,16 @@
     width: 100%;
     td {
       height: 63px;
-      width: 63px;
       padding: 0px;
       padding-left: 4px;
 
+      div p{
+        font-size: 8px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
 
-    }
-    p{
-      font-size: 8px;
-      margin-bottom: 0;
-      margin-top: 0;
-    }
   }
   .today {
     background-color: #FAF3DD;
@@ -23,8 +22,8 @@
 }
 
 .simple-calendar .day {
-  height: 60px;
-  font-size: small;
+  height: 50px;
+  font-size: smaller;
 }
 
 .btn-calendar {
