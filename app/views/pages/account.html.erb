@@ -63,7 +63,7 @@
         <% else %>
           <p class="text-center mt-1"> 📆</p>
         <% end %>
-        <p class="text-center"><%= workout.split.category%><p>
+        <%= link_to workout.split.category, workout_logs_path(workout), class: 'text-center', style:"color: black;" %>
       </div>
     <% end %>
   <% end %>
