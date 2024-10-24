@@ -1,12 +1,3 @@
-<% if current_user.profile_image.attached? %>
-  <%= cl_image_tag(current_user.profile_image.key, width: 100) %>
-<% end %>
-
-
-
-
-<%# <h2 class="account-title">My Account</h2> %>
-
 <div class="account-header">
 
   <div class="account-avatar">
@@ -28,13 +19,9 @@
 <h2 class="section-title">My Programmes</h2>
 
 <% if current_user.programmes.empty? %>
-  <%= link_to new_programme_path  do %>
-  <div class="d-flex justify-content-center">
-    <div class="new-programme-btn">
-      <p class="my-0 align-items-center"> Create a programme!</p>
-    </div>
+  <div class="programmes-container">
+    <p class="my-0 text-center" style="font-size: 16px;"> Create a programme <br>to get started...</p>
   </div>
-  <% end %>
 <% else %>
 
 <div class="programmes-container">
@@ -89,7 +76,8 @@
   <h2 class="section-title">My Progress</h2>
 
   <% if @exercises.empty? %>
-    <p class="d-flex justify-content-center">Your progress will show here when you log some workouts...</p>
+  <p class="my-0 text-center" style="font-size: 16px;"> Your progress will show here <br> when you log some workouts...</p>
+    <p class="d-flex justify-content-center"></p>
   <% else %>
     <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
       <!-- Carousel Inner -->

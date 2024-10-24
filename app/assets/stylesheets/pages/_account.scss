@@ -21,11 +21,13 @@ body {
 // Programme and exercise container (same specs)
 .programmes-container,
 .exercises-container,
+.calendar-container,
 .carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 15px;
+  margin-bottom: 50px;
 
   a {
     text-decoration: none;
