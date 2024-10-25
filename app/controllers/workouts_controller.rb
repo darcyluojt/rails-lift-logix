@@ -31,8 +31,6 @@ class WorkoutsController < ApplicationController
       @workout = Workout.new(workout_params)
       if @workout.save
         redirect_to account_path, notice: "Your workout has been scheduled!"
-      else
-        render 'new', status: :unprocessable_entity
       end
     end
   end

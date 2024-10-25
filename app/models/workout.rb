@@ -3,6 +3,8 @@ class Workout < ApplicationRecord
   # belongs_to :programme, optional: true
   has_many :logs, dependent: :destroy
   has_many :split_exercises, through: :logs
+  validates :date, presence: true
+  validates :split, presence: true
 
   def start_time
     # set a default start time of each workout for the calendar view
