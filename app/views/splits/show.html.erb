@@ -42,9 +42,9 @@
     <% if @split.split_exercises.length >= 3 %>
       <div class="form-links">
         <% if @next_split %>
-          <%= link_to 'Next Split', split_path(@next_split), class: "secondary-link" %>
+          <%= link_to 'Next Split', split_path(@next_split), class: "purple-button" %>
         <% else %>
-          <%= link_to 'View your program', programme_path(@split.programme), class: "secondary-link"  %>
+          <%= link_to 'View your program', programme_path(@split.programme), class: "purple-button" %>
         <% end %>
       </div>
     <% end %>
