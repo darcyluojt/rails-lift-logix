@@ -173,15 +173,8 @@ a {
   justify-content: center;
   align-items: center;
   object-fit: cover;
+  border: 5px solid $primary-accent;
   // add margin here
-
-  img {
-    border: 5px solid $primary-accent;
-  }
-
-  i {
-    border: 5px solid $primary-accent;
-  }
 }
 
 .acc-header-info {
