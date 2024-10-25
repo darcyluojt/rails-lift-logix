@@ -169,12 +169,19 @@ a {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  border: 5px solid $primary-accent;
   display: flex;
   justify-content: center;
   align-items: center;
   object-fit: cover;
   // add margin here
+
+  img {
+    border: 5px solid $primary-accent;
+  }
+
+  i {
+    border: 5px solid $primary-accent;
+  }
 }
 
 .acc-header-info {
