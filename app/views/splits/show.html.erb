@@ -4,7 +4,7 @@
     data-append-anchor-anchor-value="add-exercise">
   <%# Title of the split page %>
   <h2 class="form-title">Creating Your <%= @split.category.capitalize %> Split</h2>
-  <p class="form-description primary-color">Choose your exercises</p>
+  <p class="form-description primary-color">Choose your exercises </p>
 
   <!-- Display the exercises that have been added to the split -->
   <% @split.split_exercises.each do |split_exercise| %>
@@ -39,7 +39,7 @@
       </div>
     <% end %>
 
-    <% if @split.split_exercises.length >= 3 %>
+    <% if @split.split_exercises.length >= 1 %>
       <div class="form-links">
         <% if @next_split %>
           <%= link_to 'Next Split', split_path(@next_split), class: "purple-button" %>
