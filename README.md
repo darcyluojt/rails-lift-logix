@@ -1,29 +1,50 @@
 # **Lift Logix**
-Lift Logix is a web application developed ober the course of 2 weeks. It is an app that helps regular gym goers to create workout programme, customize their exercise plan for each split, log weights and sets, receive weight/reps  and see charts for exercises progression.
+
+**Lift Logix** is a web application developed over the course of two weeks. Designed for dedicated gym-goers, it helps users create personalized workout programs, customize exercise plans for each split, log weights and sets, track progress with charts, and receive weight/rep recommendations.
 
 ## **Features**
-During the two-week sprint, we were able to implement the following user stories:
 
-- **Design workout programme**: Users can design their own workout programme, configuring the number of weeks and customizing exercise plan for each split.
-- **Schedule or start their workout**: Users can start their workout on the go, or schedule a workout and visualize their completed and scheduled in a calendar.
-- **Log weights and reps**: Users can log their weights and repetitions for workout exercises for as many sets as possible. If user is a frequent app user, they will also see their previous heaviest weight and receive weights and reps coaching from the app.
-- **Mark workout completion**: Users can mark their workouts completed and see their workout ticked green in their calendar.
-- **Progress tracking**: Users can view completion rate for their workout programme, a calendar view of their workout schedules, line charts of exercises user do for their progression.
+During the two-week sprint, we implemented several key features that address core user needs:
+
+- **Custom Workout Program**: Users can design a custom workout program, specifying the number of weeks and tailoring each exercise split.
+- **Workout Scheduling and Tracking**: Users can start a workout session on the go or schedule workouts in advance. Completed and upcoming workouts are visualized on an interactive calendar.
+- **Log Weights and Reps**: Users can log weights and repetitions across multiple sets for each exercise.
+- **Receive Progressive Overloads Recommendations**: Frequent app users see their previous heaviest weight and receive tailored coaching on weights and reps for progressive improvement.
+- **Completion Tracking**: Users mark workouts as completed, which updates their calendar with a green tick, offering a visual sense of achievement.
+- **Progress Insights**: Users can monitor program completion rates, view their scheduled workouts in a calendar format, and track individual exercise progression through interactive line charts.
 
 ## **Technologies**
 
-- **Languages**: Ruby on Rails, HTML, SCSS, Javascript, Stimulus, Turbo  
-- **Tools and Platforms**: Heroku (for deployment), GitHub (for version control)
+- **Languages**: Ruby on Rails, HTML, SCSS, JavaScript (Stimulus & Turbo)
+- **Tools and Platforms**: Heroku (deployment), GitHub (version control)
 - **Key Gems**: 
-  - `bootstrap`: For responsive UI design
-  - `simple_form`: For easy form handling
-  - `font-awesome-sass`: For icons
-  - `sassc-rails`: For SCSS compilation
-  - `simple-calendar`: For workout calendars
-  - `devise`: for user registration and user session management
+  - `bootstrap` - For responsive UI design
+  - `simple_form` - For streamlined form handling
+  - `font-awesome-sass` - For icon integration
+  - `sassc-rails` - For SCSS compilation
+  - `simple-calendar` - For calendar views
+  - `devise` - For user authentication and session management
+  - `turbo` - For smooth page updates without full reloads
+  - `stimulus` - For interactive form control and page anchoring
 
- ## **Bits That I Enjoyed Working on the Most**
+## **Highlights**
 
-- Working on routes for 7 data models and make them as less nested as possible.
-- Working on features I wish to have for my workout app! That includes a calendar view for workout and a carousel of line charts for users' exercise progression over time.
+- **Optimized Routing**: Structured routes for seven data models, minimizing nesting for better readability and maintainability.
+- **Feature Creation Inspired by Personal Experience**: Developed features I always wanted in a workout app, like a calendar view for workouts and a carousel of line charts displaying exercise progression over time.
+- **Team Collaboration and Product Pitching**: Monitored our user story development using Kanban board and Agile Project Management. Had the rewarding experience of pitching this product alongside an amazing team.
+
+## **Getting Started**
+
+To get started, clone this repo, navigate to the project directory, and follow these steps:
+
+```bash
+# Install dependencies
+bundle install
+
+# Set up the database
+rails db:create
+rails db:migrate
+
+# Start the server
+rails server
 
