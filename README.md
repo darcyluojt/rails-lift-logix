@@ -16,7 +16,7 @@ During the two-week sprint, we implemented several key features that address cor
 ## **Technologies**
 
 - **Languages**: Ruby on Rails, HTML, SCSS, JavaScript (Stimulus & Turbo)
-- **Tools and Platforms**: Heroku (deployment), GitHub (version control)
+- **Tools and Platforms**: Heroku (deployment), GitHub (version control), Figma(UI kit and user journey), Notion & Github projects (Agile project management and Kanban board)
 - **Key Gems**: 
   - `bootstrap` - For responsive UI design
   - `simple_form` - For streamlined form handling
