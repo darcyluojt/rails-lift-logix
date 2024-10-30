@@ -27,11 +27,12 @@ During the two-week sprint, we implemented several key features that address cor
   - `turbo` - For smooth page updates without full reloads
   - `stimulus` - For interactive form control and page anchoring
 
-## **Highlights**
-
-- **Optimized Routing**: Structured routes for seven data models, minimizing nesting for better readability and maintainability.
-- **Feature Creation Inspired by Personal Experience**: Developed features I always wanted in a workout app, like a calendar view for workouts and a carousel of line charts displaying exercise progression over time.
-- **Team Collaboration and Product Pitching**: Monitored our user story development using Kanban board and Agile Project Management. Had the rewarding experience of pitching this product alongside an amazing team.
+## **My role**
+- **Backend Development & Project Management**: I led backend development on Lift Logix, creating data models, backend routes, and user story implementations. Additionally, I managed project workflows, conducting daily stand-ups and maintaining an updated Kanban board.
+- **What I like and learnt the most**: 
+  - **Optimized Routing**: Structured routes for seven data models, minimizing nesting for better readability and maintainability.
+  - **Feature Creation Inspired by Personal Experience**: Developed features I always wanted in a workout app, like a calendar view for workouts and a carousel of line charts displaying exercise progression over time.
+  - **Team Collaboration and Product Pitching**: Monitored our user story development using Kanban board and Agile Project Management. Had the rewarding experience of pitching this product alongside an amazing team.
 
 ## **Getting Started**
 
