@@ -1,6 +1,6 @@
 # **Lift Logix**
 
-**Lift Logix** is a web application developed over the course of two weeks. Designed for dedicated gym-goers, it helps users create personalized workout programs, customize exercise plans for each split, log weights and sets, track progress with charts, and receive weight/rep recommendations.
+**Lift Logix** is a web application developed over the course of two weeks. Designed for dedicated gym-goers, it helps users create personalised workout programs, customise exercise plans for each split, log weights and sets, track progress with charts, and receive weight/rep recommendations.
 
 ## **Features**
 
@@ -28,11 +28,13 @@ During the two-week sprint, we implemented several key features that address cor
   - `stimulus` - For interactive form control and page anchoring
 
 ## **My role**
-- **Backend Development & Project Management**: I led backend development on Lift Logix, creating data models, backend routes, and user story implementations. Additionally, I managed project workflows, conducting daily stand-ups and maintaining an updated Kanban board.
+- **Led Backend Development**: crafted data models with PostgreSQL, implemented routes and user stories in Ruby on Rails, and enhanced app responsiveness using JavaScript and Stimulus.
+- **Agile project management**: managed project workflows, conducted daily stand-ups and maintained an updated Kanban board.
 - **What I like and learnt the most**: 
   - **Optimized Routing**: Structured routes for seven data models, minimizing nesting for better readability and maintainability.
   - **Feature Creation Inspired by Personal Experience**: Developed features I always wanted in a workout app, like a calendar view for workouts and a carousel of line charts displaying exercise progression over time.
   - **Team Collaboration and Product Pitching**: Monitored our user story development using Kanban board and Agile Project Management. Had the rewarding experience of pitching this product alongside an amazing team.
+    <a href="https://www.youtube.com/watch?v=QYZo94IxCN0">Link to product demo recording</a>
 
 ## **Getting Started**
 
