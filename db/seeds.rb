@@ -206,10 +206,10 @@ puts "creating exercises"
   end
 
   puts "create a user"
-  user = User.create!(email: "abc@abc.com", password: "123456", username: "Moana", weight: 70, height: 180, date_of_birth: "1990-01-01")
+  user = User.create!(email: "abc@abc.com", password: "123456", username: "Darcy", weight: 70, height: 180, date_of_birth: "1990-01-01")
 
   puts "create a programme"
-  programme = Programme.create!(name: "Strongman", user: user, weeks: 12, splits_per_week: 2)
+  programme = Programme.create!(name: "StrongWoman", user: user, weeks: 12, splits_per_week: 2)
 
   puts "create 3 splits"
   split1 = Split.create!(programme: programme, category: "Upperbody")
